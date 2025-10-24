@@ -53,6 +53,7 @@ namespace TextProcessing
                     if (word.Length > 0)
                     {
                         TokenQueue.Enqueue(new Token(word));
+                        word = "";
                     }
                     if (ch == '\n')
                     {
