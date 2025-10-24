@@ -1,5 +1,4 @@
-﻿
-namespace TextProcessing
+﻿namespace TextProcessing
 {
     public enum TypeToken
     { 
@@ -9,5 +8,26 @@ namespace TextProcessing
         EoP
     }
 
-    public readonly record struct Token(TypeToken Type, string? Word);
+    public struct Token
+    {
+        public TypeToken Type { get; init; }
+        public string? Word { get; init; }
+
+        public Token(TypeToken type)
+        {
+            if (type == TypeToken.Word)
+            {
+                throw new InvalidOperationException("Use Token(string word) constructor instead.");
+            }
+
+            Type = type;
+            Word = null;
+        }
+
+        public Token(string word)
+        {
+            Type = TypeToken.Word;
+            Word = word;
+        }
+    }
 }
