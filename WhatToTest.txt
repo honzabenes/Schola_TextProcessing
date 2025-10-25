@@ -1,0 +1,41 @@
+Word Counter:
+	- Arguments
+		1. No argument
+		2. Too many arguments (more than 1)
+	- Input File
+		1. File not exists
+	- Counting
+		1. No word
+		2. One word, no white spaces
+		3. One word, some white spaces
+		4. More words, some white spaces
+
+Word Frequency Counter:
+	- Arguments
+		1. No argument
+		2. Too many arguments (more than 1)
+	- Input File
+		1. File not exists
+	- Counting
+		1. No word
+		2. One word one time
+		3. One word more times
+		4. More words one time
+		5. More words more times
+		6. Same words, different CAPS
+		7. Same "words", one with non alphabet char
+
+Word Paragraph Counter:
+	- Arguments
+		1. No argument
+		2. Wrong count of arguments (!= 3)
+	- Input File
+		1. File not exists
+	- Counting
+		1. No word
+		2. One word one time
+		3. One word more times
+		4. More words one time
+		5. More words more times
+		6. Same words, different CAPS
+		7. Same "words", one with non alphabet char

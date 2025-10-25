@@ -4,14 +4,10 @@ namespace TextProcessing
 {
     public class TokenReaderByChars : TokenReader
     {
-        private char[] Separators { get; init; }
         private int NewLineStreak { get; set; } = 2;
 
         public TokenReaderByChars(TextReader reader, params char[] separators)
-            : base(reader)
-        {
-            Separators = separators;
-        }
+            : base(reader, separators) { }
 
 
         public override Token ReadToken()
@@ -29,7 +25,7 @@ namespace TextProcessing
                 }
 
                 // White character found, need to be skipped
-                if (Separators.Contains(ch))
+                if (_separators.Contains(ch))
                 {
                     _reader.Read();
                 }
@@ -71,7 +67,7 @@ namespace TextProcessing
             {
                 char ch = (char)peekChar;
 
-                if (Separators.Contains(ch))
+                if (_separators.Contains(ch))
                 {
                     break;
                 }

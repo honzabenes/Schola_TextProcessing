@@ -13,7 +13,7 @@
         public const string ArgumentErrorMessage = "Argument Error";
 
 
-        public bool InitializeFromCLIArguments(string[] args)
+        public bool InitializeReaderFromCLIArguments(string[] args)
         {
             const int ARGS_COUNT = 1;
 
@@ -46,34 +46,73 @@
                 return false;
             }
 
-
-            //Initialize Writer
-            //string outputFilePath = args[1];
-            //try
-            //{
-            //    Writer = new StreamWriter(outputFilePath);
-            //}
-            //catch (IOException)
-            //{
-            //    Console.WriteLine(FileErrorMessage);
-            //    return false;
-            //}
-            //catch (UnauthorizedAccessException)
-            //{
-            //    Console.WriteLine(FileErrorMessage);
-            //    return false;
-            //}
-            //catch (ArgumentException)
-            //{
-            //    Console.WriteLine(ArgumentErrorMessage);
-            //    return false;
-            //}
-
             Writer = Console.Out;
+
+            return true;
+        }
+
+
+        public bool InitializeReaderWriterColumnNameFromCLIArguments(string[] args)
+        {
+            const int ARGS_COUNT = 3;
+
+            // Check arguments
+            if (args.Length != ARGS_COUNT)
+            {
+                Console.WriteLine(ArgumentErrorMessage);
+                return false;
+            }
+
+            // Initialize Reader
+            string inputFilePath = args[0];
+            try
+            {
+                Reader = new StreamReader(inputFilePath);
+            }
+            catch (IOException)
+            {
+                Console.WriteLine(FileErrorMessage);
+                return false;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine(FileErrorMessage);
+                return false;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine(ArgumentErrorMessage);
+                return false;
+            }
+
+
+            // Initialize Writer
+            string outputFilePath = args[1];
+            try
+            {
+                Writer = new StreamWriter(outputFilePath);
+            }
+            catch (IOException)
+            {
+                Console.WriteLine(FileErrorMessage);
+                return false;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine(FileErrorMessage);
+                return false;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine(ArgumentErrorMessage);
+                return false;
+            }
+
+            //Writer = Console.Out;
 
 
             // initialize ColumnName
-            //ColumnName = args[2];
+            ColumnName = args[2];
 
             return true;
         }
