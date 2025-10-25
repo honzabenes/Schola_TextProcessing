@@ -19,11 +19,11 @@
 
             var tokenReader = new TokenReaderByChars(IOState.Reader!, IOState.WhiteSpaces);
 
-            ITokenProcessor wordCounter = new WordCounter(IOState.Writer!);
+            //ITokenProcessor wordCounter = new WordCounter(IOState.Writer!);
             //ITokenProcessor wordFreqCounter = new WordFrequencyCounter(IOState.Writer!);
-            //ITokenProcessor paragWordCounter = new ParagraphWordCounter(IOState.Writer!);
+            ITokenProcessor paragWordCounter = new ParagraphWordCounter(IOState.Writer!);
 
-            Executor.ProcessAllWords(tokenReader, wordCounter);
+            Executor.ProcessAllWords(tokenReader, paragWordCounter);
 
 
             IOState.Dispose();

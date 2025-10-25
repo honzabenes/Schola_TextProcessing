@@ -79,6 +79,7 @@ namespace TextProcessing
 
             string word = wordBuilder.ToString();
 
+            NewLineStreak = 0;
             return new Token(word);
         }
     }
