@@ -4,12 +4,19 @@
     {
         public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor)
         {
-            Token token = reader.ReadToken();
-
-            while (token.Type != TypeToken.EoI)
+            try
             {
-                processor.ProcessToken(token);
-                token = reader.ReadToken();
+                Token token = reader.ReadToken();
+
+                while (token.Type != TypeToken.EoI)
+                {
+                    processor.ProcessToken(token);
+                    token = reader.ReadToken();
+                }
+            }
+            catch (InvalidTableFormatException)
+            {
+                Console.WriteLine("Invalid File Format");
             }
 
             processor.WriteOut();
