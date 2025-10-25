@@ -52,8 +52,16 @@ namespace TextProcessing
             // Move the cursor and tokenize if we ended at new line
             if (currentChar == '\n')
             {
+                NewLineStreak++;
                 _reader.Read();
                 return new Token(TypeToken.EoL);
+            }
+
+            // Tokenize end of paragraph, if we found a new one
+            if (NewLineStreak >= 2)
+            {
+                NewLineStreak = 0;
+                return new Token(TypeToken.EoP);
             }
 
             // Read and tokenize word if we ended at non-white character

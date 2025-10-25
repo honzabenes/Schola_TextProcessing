@@ -1,9 +1,11 @@
-﻿namespace TextProcessing
+﻿using System.Text;
+
+namespace TextProcessing
 {
     public enum TypeToken
     { 
         Word,
-        EoF,
+        EoI,
         EoL,
         EoP
     }
@@ -28,6 +30,11 @@
         {
             Type = TypeToken.Word;
             Word = word;
+        }
+
+        public override string ToString()
+        {
+            return $"Type: {Type}, Word: {Word}";
         }
     }
 }

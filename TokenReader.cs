@@ -2,7 +2,7 @@
 {
     public abstract class TokenReader
     {
-        private TextReader _reader;
+        protected TextReader _reader;
 
         public TokenReader(TextReader reader)
         {

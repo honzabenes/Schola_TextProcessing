@@ -1,4 +1,4 @@
-﻿namespace WordCounting
+﻿namespace TextProcessing
 {
     // Tato třída je inspirována kódem Mgr. Pavla Ježka, Ph.D.
     public class InputOutputState : IDisposable
@@ -48,28 +48,28 @@
 
 
             //Initialize Writer
-            string outputFilePath = args[1];
-            try
-            {
-                Writer = new StreamWriter(outputFilePath);
-            }
-            catch (IOException)
-            {
-                Console.WriteLine(FileErrorMessage);
-                return false;
-            }
-            catch (UnauthorizedAccessException)
-            {
-                Console.WriteLine(FileErrorMessage);
-                return false;
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine(ArgumentErrorMessage);
-                return false;
-            }
+            //string outputFilePath = args[1];
+            //try
+            //{
+            //    Writer = new StreamWriter(outputFilePath);
+            //}
+            //catch (IOException)
+            //{
+            //    Console.WriteLine(FileErrorMessage);
+            //    return false;
+            //}
+            //catch (UnauthorizedAccessException)
+            //{
+            //    Console.WriteLine(FileErrorMessage);
+            //    return false;
+            //}
+            //catch (ArgumentException)
+            //{
+            //    Console.WriteLine(ArgumentErrorMessage);
+            //    return false;
+            //}
 
-            //Writer = Console.Out;
+            Writer = Console.Out;
 
 
             // initialize ColumnName
