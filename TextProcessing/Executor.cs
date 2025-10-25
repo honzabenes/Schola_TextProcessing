@@ -19,6 +19,17 @@
             catch (InvalidInputFormatException)
             {
                 errWriter.WriteLine("Invalid File Format");
+                return;
+            }
+            catch (NotParsableByIntException)
+            {
+                errWriter.WriteLine("Invalid Integer Value");
+                return;
+            }
+            catch (NonExistenColumnNameInTableException)
+            {
+                errWriter.WriteLine("Non-existent Column Name");
+                return;
             }
 
             processor.WriteOut();

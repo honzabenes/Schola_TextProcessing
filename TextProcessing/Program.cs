@@ -4,18 +4,19 @@
     {
         static void Main(string[] args)
         {
-            // IOState for Word Counter, Word Frequency Counter, Paragraph Word Counter
             var IOState = new InputOutputState();
-            if (!IOState.InitializeReaderFromCLIArguments(args))
-            {
-                return;
-            }
 
-            // IOState for Table Summator
-            //if (!IOState.InitializeReaderWriterColumnNameFromCLIArguments(args))
+            //IOState for Word Counter, Word Frequency Counter, Paragraph Word Counter
+            //if (!IOState.InitializeReaderFromCLIArguments(args))
             //{
             //    return;
             //}
+
+            //IOState for Table Summator
+            if (!IOState.InitializeReaderWriterColumnNameFromCLIArguments(args))
+            {
+                return;
+            }
 
             var tokenReader = new TokenReaderByChars(IOState.Reader!, IOState.WhiteSpaces);
 

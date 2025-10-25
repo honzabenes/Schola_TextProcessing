@@ -1,13 +1,19 @@
-﻿namespace TextProcessing
+﻿using System.Text;
+
+namespace TextProcessing
 {
     public class TableSummator : ITokenProcessor
     {
         private TextWriter _writer;
 
-        private string _columnName { get; set; }
+        private string _sumColumnName { get; set; }
+        private int? _sumColumnNumber { get; set; } = null;
         private int _currentRow { get; set; } = 0;
         private int _currentColumn { get; set; } = 0;
-        private bool _isNewLineLastToken { get; set; } = true;
+        private int _rowSize { get; set; } = 0;
+        private bool _isLastTokenNewLine { get; set; } = true;
+
+        public long ColumnSum { get; set; } = 0;
 
         public const string FileIsEmptyErrorMessage = "File is empty";
         public const string RowsAreNotTheSameSizeErrorMessage = "Rows are not the same size";
@@ -16,31 +22,92 @@
         public TableSummator(TextWriter writer, string columnName)
         {
             _writer = writer;
-            _columnName = columnName;
+            _sumColumnName = columnName;
         }
 
 
         public void ProcessToken(Token token)
         {
-            // TODO: actually implement
-            if (token.Type == TypeToken.EoI)
+            switch (token.Type)
             {
-                if (_currentRow == 0 && _currentColumn == 0)
-                {
-                    throw new InvalidInputFormatException(FileIsEmptyErrorMessage);
-                }
-            }
+                case TypeToken.Word:
+                    _currentColumn++;
+                    _isLastTokenNewLine = false;
+                    if (_currentRow == 0)
+                    {
+                        if (_sumColumnName == token.Word)
+                        {
+                            _sumColumnNumber = _currentColumn;
+                        }
+                        _rowSize++;
+                    }
+                    else if (_currentColumn > _rowSize)
+                    {
+                        throw new InvalidInputFormatException(RowsAreNotTheSameSizeErrorMessage);
+                    }
+                    else if (_currentColumn == _sumColumnNumber)
+                    {
+                        try
+                        {
+                            ColumnSum += int.Parse(token.Word!);
+                        }
+                        catch (FormatException)
+                        {
+                            throw new NotParsableByIntException();
+                        }
+                        catch (OverflowException)
+                        {
+                            throw new NotParsableByIntException();
+                        }
+                    }
+                    break;
 
-            if (token.Type == TypeToken.Word)
-            {
-                _currentColumn++;
+                case TypeToken.EoL:
+                    if (_currentRow == 0 && _sumColumnNumber == null)
+                    {
+                        throw new NonExistenColumnNameInTableException();
+                    }
+                    if (_currentColumn < _rowSize)
+                    {
+                        throw new InvalidInputFormatException(RowsAreNotTheSameSizeErrorMessage);
+                    }
+                    _currentColumn = 0;
+                    if (_isLastTokenNewLine)
+                    {
+                        throw new InvalidInputFormatException(EmptyLineInTableErrorMessage);
+                    }
+                    _currentRow++;
+                    break;
+
+                case TypeToken.EoI:
+                    if (_currentRow == 0 && _currentColumn == 0)
+                    {
+                        throw new InvalidInputFormatException(FileIsEmptyErrorMessage);
+                    }
+                    if (_currentColumn > 0 && _currentColumn < _rowSize)
+                    {
+                        throw new InvalidInputFormatException(RowsAreNotTheSameSizeErrorMessage);
+                    }
+                    break;
             }
         }
 
 
         public void WriteOut()
         {
-            // TODO: actually implement
+            var sb = new StringBuilder();
+
+            sb.AppendLine(_sumColumnName);
+            foreach (char c in _sumColumnName)
+            {
+                sb.Append('-');
+            }
+            sb.AppendLine();
+            sb.AppendLine(ColumnSum.ToString());
+
+            string output = sb.ToString();
+
+            _writer.WriteLine(output);
         }
     }
 }

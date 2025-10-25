@@ -1,4 +1,6 @@
-﻿namespace TextProcessing_Tests
+﻿using System.Text;
+
+namespace TextProcessing_Tests
 {
     public class TableSummator_Tests
     {
@@ -69,7 +71,14 @@
             string? output = sw.ToString().Trim();
 
             // Assert
-            Assert.Equal("5", output);
+            var sb = new StringBuilder();
+            sb.AppendLine("Price");
+            sb.AppendLine("-----");
+            sb.AppendLine("5");
+
+            string expected = sb.ToString().Trim();
+
+            Assert.Equal(expected, output);
         }
 
 
@@ -192,7 +201,14 @@
             string? output = sw.ToString().Trim();
 
             // Assert
-            Assert.Equal("31", output);
+            var sb = new StringBuilder();
+            sb.AppendLine("Price");
+            sb.AppendLine("-----");
+            sb.AppendLine("31");
+
+            string expected = sb.ToString().Trim();
+
+            Assert.Equal(expected, output);
         }
     }
 }
