@@ -1,6 +1,6 @@
 ﻿namespace TextProcessing
 {
-    internal class WordCounter : ITokenProcessor
+    public class WordCounter : ITokenProcessor
     {
         private TextWriter _writer;
 
