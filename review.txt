@@ -1,0 +1,70 @@
+
+=== CVIKA 1 - REVIEW ===
+
+1. CLI argumenty
+2. otevrit soubor
+3. pripravit prostredi (vyrobit instanci)
+4. rozbehnout
+5. vypsat vysledky
+
+
+class WordReader (TextReader argument konstruktoru, ulozit jako Prop nebo Field)
+{
+	ReadWord() -> string 
+	{
+	}
+}
+
+class WordCounter : WP
+{
+	count++
+}
+
+class WordFrequencyCounter : WP
+{
+	[word]++
+}
+
+
+
+=== CVIKA 2 - REVIEW ===
+
+class WordReaderByChars : IWord(Token)Reader (lepší jako abstract class kvùli constr(TextReader reader)) 
+{
+	string? ReadWord() // NEDOSTATEÈNÁ, potøeba zobecnit
+	{
+		return word;
+	}
+
+	co èíst?
+
+	ReadToken
+
+	slovo, EoI, EoL, EoP -> vyrobit enum (TokenType)
+
+class/struct Token
+	{
+	více konstruktorù..., využít ctor, required, init, private set,...
+		TokenType Type
+		string? Word;
+	}
+}
+
+class WordCounter
+class WordFreqCounter
+class ParagWordCounter
+class TableSummator : IWordProcessor (lepší jako interface?)
+{
+	word -> ProcessWord()	
+}
+
+-----
+
+ReadAndProcessAllWords(IWordReader reader, IWordProcessor processor)
+{
+v cyklu:
+
+	word = reader.ReadWord()
+
+	processor.ProcessWord(word)
+}
