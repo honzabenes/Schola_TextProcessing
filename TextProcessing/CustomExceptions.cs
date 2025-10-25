@@ -1,10 +1,10 @@
 ﻿namespace TextProcessing
 {
-    public class InvalidTableFormatException : Exception
+    public class InvalidInputFormatException : Exception
     {
-        public InvalidTableFormatException() { }
+        public InvalidInputFormatException() { }
 
-        public InvalidTableFormatException(string message)
+        public InvalidInputFormatException(string message)
         : base(message) { }
     }
 }

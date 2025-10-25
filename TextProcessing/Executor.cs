@@ -2,7 +2,7 @@
 {
     public static class Executor
     {
-        public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor)
+        public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor, TextWriter errWriter)
         {
             try
             {
@@ -13,10 +13,12 @@
                     processor.ProcessToken(token);
                     token = reader.ReadToken();
                 }
+
+                processor.ProcessToken(token);
             }
-            catch (InvalidTableFormatException)
+            catch (InvalidInputFormatException)
             {
-                Console.WriteLine("Invalid File Format");
+                errWriter.WriteLine("Invalid File Format");
             }
 
             processor.WriteOut();

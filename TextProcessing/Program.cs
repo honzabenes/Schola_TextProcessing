@@ -21,9 +21,10 @@
 
             //ITokenProcessor wordCounter = new WordCounter(IOState.Writer!);
             //ITokenProcessor wordFreqCounter = new WordFrequencyCounter(IOState.Writer!);
-            ITokenProcessor paragWordCounter = new ParagraphWordCounter(IOState.Writer!);
+            //ITokenProcessor paragWordCounter = new ParagraphWordCounter(IOState.Writer!);
+            ITokenProcessor tableSummator = new TableSummator(IOState.Writer!, IOState.ColumnName!);
 
-            Executor.ProcessAllWords(tokenReader, paragWordCounter);
+            Executor.ProcessAllWords(tokenReader, tableSummator, Console.Out);
 
 
             IOState.Dispose();
