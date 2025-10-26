@@ -51,6 +51,31 @@ namespace TextProcessing_Tests
 
 
         [Fact]
+        public void NewLineBeforeTable()
+        {
+            // Arrange
+            string input = """
+
+                Groceries   Price   Discount    ActualPrice
+                Apple       5       20          4
+                """;
+
+            var sw = new StringWriter();
+            var sr = new StringReader(input);
+
+            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
+
+            // Act
+            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            string? output = sw.ToString().Trim();
+
+            // Assert
+            Assert.Equal("Invalid File Format", output);
+        }
+
+
+        [Fact]
         public void LastRowEndsWithNewLine()
         {
             // Arrange

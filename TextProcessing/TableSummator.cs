@@ -11,7 +11,6 @@ namespace TextProcessing
         private int _currentRow { get; set; } = 0;
         private int _currentColumn { get; set; } = 0;
         private int _rowSize { get; set; } = 0;
-        private bool _isLastTokenNewLine { get; set; } = true;
 
         public long ColumnSum { get; set; } = 0;
 
@@ -32,7 +31,6 @@ namespace TextProcessing
             {
                 case TypeToken.Word:
                     _currentColumn++;
-                    _isLastTokenNewLine = false;
                     if (_currentRow == 0)
                     {
                         if (_sumColumnNumber == null && _sumColumnName == token.Word)
@@ -63,6 +61,10 @@ namespace TextProcessing
                     break;
 
                 case TypeToken.EoL:
+                    if (_currentRow == 0 && _currentColumn == 0)
+                    {
+                        throw new InvalidInputFormatException(EmptyLineInTableErrorMessage);
+                    }
                     if (_currentRow == 0 && _sumColumnNumber == null)
                     {
                         throw new NonExistenColumnNameInTableException();
@@ -71,12 +73,8 @@ namespace TextProcessing
                     {
                         throw new InvalidInputFormatException(RowsAreNotTheSameSizeErrorMessage);
                     }
-                    _currentColumn = 0;
-                    if (_isLastTokenNewLine)
-                    {
-                        throw new InvalidInputFormatException(EmptyLineInTableErrorMessage);
-                    }
                     _currentRow++;
+                    _currentColumn = 0;
                     break;
 
                 case TypeToken.EoI:
