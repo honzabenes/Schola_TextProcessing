@@ -18,7 +18,7 @@
                 return;
             }
 
-            var tokenReader = new TokenReaderByChars(IOState.Reader!, IOState.WhiteSpaces);
+            var tokenReader = new TokenReaderByChars(IOState.Reader!);
 
             //ITokenProcessor wordCounter = new WordCounter();
             //ITokenProcessor wordFreqCounter = new WordFrequencyCounter();

@@ -7,8 +7,8 @@ namespace TextProcessing
         private int _newLineStreak { get; set; } = 0;
         private bool _wordFound { get; set; } = false;
 
-        public TokenReaderByChars(TextReader reader, params char[] whiteSpaces)
-            : base(reader, whiteSpaces) { }
+        public TokenReaderByChars(TextReader reader)
+            : base(reader) { }
 
 
         public override Token ReadToken()
@@ -20,7 +20,7 @@ namespace TextProcessing
                 char ch = (char)peekChar;
 
                 // New line or non white char found, need to be tokenized
-                if (ch == '\n' || !_whiteSpaces.Contains(ch))
+                if (ch == '\n' || !char.IsWhiteSpace(ch))
                 {
                     break;
                 }
@@ -71,7 +71,7 @@ namespace TextProcessing
             {
                 char ch = (char)peekChar;
 
-                if (_whiteSpaces.Contains(ch))
+                if (char.IsWhiteSpace(ch))
                 {
                     break;
                 }
