@@ -15,11 +15,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -36,11 +36,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -60,11 +60,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -90,11 +90,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -111,11 +111,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -144,11 +144,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -201,11 +201,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new ParagraphWordCounter(sw);
+            ITokenProcessor wordCounter = new ParagraphWordCounter();
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert

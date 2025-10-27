@@ -1,24 +1,14 @@
-﻿using System.Text;
-
-namespace TextProcessing
+﻿namespace TextProcessing
 {
     public class WordFrequencyCounter : ITokenProcessor
     {
-        private TextWriter _writer;
-
         public SortedDictionary<string, int> Words { get; private set; } = new SortedDictionary<string, int>();
-
-        public WordFrequencyCounter(TextWriter writer) 
-        {
-            _writer = writer;
-        }
-
 
         public void ProcessToken(Token token)
         {
             if (token.Type == TypeToken.Word)
             {
-                string word = token.Word;
+                string word = token.Word!;
 
                 if (Words.ContainsKey(word))
                 {
@@ -32,12 +22,12 @@ namespace TextProcessing
         }
 
 
-        public void WriteOut()
+        public void WriteOut(TextWriter writer)
         {
             foreach (KeyValuePair<string, int> pair in Words)
             {
                 string line = $"{pair.Key}: {pair.Value}";
-                _writer.WriteLine(line);
+                writer.WriteLine(line);
             }
         }
     }

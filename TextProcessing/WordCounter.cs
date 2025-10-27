@@ -2,8 +2,6 @@
 {
     public class WordCounter : ITokenProcessor
     {
-        private TextWriter _writer;
-
         private int _overallCount = 0;
         public int OverallCount
         {
@@ -22,11 +20,6 @@
             }
         }
 
-        public WordCounter(TextWriter writer)
-        {
-            _writer = writer;
-        }
-
 
         public void ProcessToken(Token token)
         {
@@ -37,9 +30,9 @@
         }
 
 
-        public void WriteOut()
+        public void WriteOut(TextWriter writer)
         {
-            _writer.WriteLine(OverallCount);
+            writer.WriteLine(OverallCount);
         }
     }
 }

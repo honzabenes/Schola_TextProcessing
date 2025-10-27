@@ -4,6 +4,6 @@
     {
         void ProcessToken(Token token);
 
-        void WriteOut();
+        void WriteOut(TextWriter writer);
     }
 }

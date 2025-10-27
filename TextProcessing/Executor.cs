@@ -2,7 +2,7 @@
 {
     public static class Executor
     {
-        public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor, TextWriter errWriter)
+        public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor, TextWriter writer, TextWriter errWriter)
         {
             try
             {
@@ -32,7 +32,7 @@
                 return;
             }
 
-            processor.WriteOut();
+            processor.WriteOut(writer);
         }
     }
 }

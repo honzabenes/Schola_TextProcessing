@@ -4,8 +4,6 @@ namespace TextProcessing
 {
     public class TableSummator : ITokenProcessor
     {
-        private TextWriter _writer;
-
         private string _sumColumnName { get; init; }
         private int? _sumColumnNumber { get; set; } = null;
         private int _currentRow { get; set; } = 0;
@@ -18,9 +16,8 @@ namespace TextProcessing
         public const string RowsAreNotTheSameSizeErrorMessage = "Rows are not the same size";
         public const string EmptyLineInTableErrorMessage = "Empty line in table";
 
-        public TableSummator(TextWriter writer, string columnName)
+        public TableSummator(string columnName)
         {
-            _writer = writer;
             _sumColumnName = columnName;
         }
 
@@ -111,7 +108,7 @@ namespace TextProcessing
         }
 
 
-        public void WriteOut()
+        public void WriteOut(TextWriter writer)
         {
             var sb = new StringBuilder();
 
@@ -125,7 +122,7 @@ namespace TextProcessing
 
             string output = sb.ToString();
 
-            _writer.Write(output);
+            writer.Write(output);
         }
     }
 }

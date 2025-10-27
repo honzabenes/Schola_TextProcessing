@@ -11,13 +11,15 @@ namespace TextProcessing_Tests
             string input = "";
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
+
             var sr = new StringReader(input);
 
-            ITokenProcessor tableSummator = new TableSummator(sw, "Price");
+            ITokenProcessor tableSummator = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, tableSummator, sw);
+            Executor.ProcessAllWords(tReader, tableSummator, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -36,13 +38,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -61,13 +64,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -88,11 +92,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -118,13 +122,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -143,13 +148,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -168,13 +174,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -192,13 +199,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Amount");
+            ITokenProcessor wordCounter = new TableSummator("Amount");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -216,13 +224,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Discount");
+            ITokenProcessor wordCounter = new TableSummator("Discount");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -240,13 +249,14 @@ namespace TextProcessing_Tests
                 """;
 
             var sw = new StringWriter();
+            Console.SetOut(sw);
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Discount");
+            ITokenProcessor wordCounter = new TableSummator("Discount");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -268,11 +278,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -301,11 +311,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -331,11 +341,11 @@ namespace TextProcessing_Tests
             var sw = new StringWriter();
             var sr = new StringReader(input);
 
-            ITokenProcessor wordCounter = new TableSummator(sw, "Price");
+            ITokenProcessor wordCounter = new TableSummator("Price");
             TokenReader tReader = new TokenReaderByChars(sr, Constants.WHITE_SPACES);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw);
+            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert

@@ -2,15 +2,8 @@
 {
     public class ParagraphWordCounter : ITokenProcessor
     {
-        private TextWriter _writer;
-
         public List<int> ParagraphWordCounts { get; private set; } = new List<int>();
         private int CurrentParagraph { get; set; } = 0;
-
-        public ParagraphWordCounter(TextWriter writer)
-        {
-            _writer = writer;
-        }
 
 
         public void ProcessToken(Token token)
@@ -40,11 +33,11 @@
         }
 
 
-        public void WriteOut()
+        public void WriteOut(TextWriter writer)
         {
             foreach (int count in ParagraphWordCounts)
             {
-                _writer.WriteLine(count);
+                writer.WriteLine(count);
             }
         }
     }

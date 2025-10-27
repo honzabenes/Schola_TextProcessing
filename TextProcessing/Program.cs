@@ -20,12 +20,15 @@
 
             var tokenReader = new TokenReaderByChars(IOState.Reader!, IOState.WhiteSpaces);
 
-            //ITokenProcessor wordCounter = new WordCounter(IOState.Writer!);
-            //ITokenProcessor wordFreqCounter = new WordFrequencyCounter(IOState.Writer!);
-            //ITokenProcessor paragWordCounter = new ParagraphWordCounter(IOState.Writer!);
-            ITokenProcessor tableSummator = new TableSummator(IOState.Writer!, IOState.ColumnName!);
+            //ITokenProcessor wordCounter = new WordCounter();
+            //ITokenProcessor wordFreqCounter = new WordFrequencyCounter();
+            //ITokenProcessor paragWordCounter = new ParagraphWordCounter();
+            ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
 
-            Executor.ProcessAllWords(tokenReader, tableSummator, Console.Out);
+            //Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
+            //Executor.ProcessAllWords(tokenReader, paragWordFreqCounter, IOState.Writer!, Console.Out);
+            //Executor.ProcessAllWords(tokenReader, paragWordCounter, IOState.Writer!, Console.Out);
+            Executor.ProcessAllWords(tokenReader, tableSummator, IOState.Writer!, Console.Out);
 
 
             IOState.Dispose();

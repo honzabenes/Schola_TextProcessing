@@ -19,28 +19,26 @@ namespace TextProcessing
             {
                 char ch = (char)peekChar;
 
-                // New line found, need to be tokenized
-                if (ch == '\n')
+                // New line or non white char found, need to be tokenized
+                if (ch == '\n' || !_whiteSpaces.Contains(ch))
                 {
                     break;
                 }
 
                 // White character found, need to be skipped
-                if (_whiteSpaces.Contains(ch))
-                {
-                    _reader.Read();
-                }
-
-                // Non white character found, means beginning of the new word, need to be tokenized
-                else
-                {
-                    break;
-                }
+                _reader.Read();
             }
 
             // Tokenize if we ended at the end of input
             if (peekChar == -1)
             {
+                // First tokenize end of paragraph if found
+                if (_newLineStreak >= 2)
+                {
+                    _newLineStreak = 0;
+                    return new Token(TypeToken.EoP);
+                }
+
                 return new Token(TypeToken.EoI);
             }
 
