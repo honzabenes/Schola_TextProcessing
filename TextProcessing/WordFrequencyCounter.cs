@@ -8,16 +8,22 @@
         {
             if (token.Type == TypeToken.Word)
             {
-                string word = token.Word!;
+                ProcessWordToken(token);
+            }
+        }
 
-                if (Words.ContainsKey(word))
-                {
-                    Words[word]++;
-                }
-                else
-                {
-                    Words.Add(word, 1);
-                }
+
+        private void ProcessWordToken(Token token)
+        {
+            string word = token.Word!;
+
+            if (Words.ContainsKey(word))
+            {
+                Words[word]++;
+            }
+            else
+            {
+                Words.Add(word, 1);
             }
         }
 

@@ -11,14 +11,7 @@
             switch (token.Type)
             {
                 case TypeToken.Word:
-                    if (ParagraphWordCounts.Count <= CurrentParagraph)
-                    {
-                        ParagraphWordCounts.Add(1);
-                    }
-                    else
-                    {
-                        ParagraphWordCounts[CurrentParagraph]++;
-                    }
+                    ProcessWordToken();
                     break;
 
                 case TypeToken.EoP:
@@ -29,6 +22,19 @@
                     break;
 
                 default: break;
+            }
+        }
+
+
+        private void ProcessWordToken()
+        {
+            if (ParagraphWordCounts.Count <= CurrentParagraph)
+            {
+                ParagraphWordCounts.Add(1);
+            }
+            else
+            {
+                ParagraphWordCounts[CurrentParagraph]++;
             }
         }
 

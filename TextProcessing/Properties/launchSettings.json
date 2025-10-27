@@ -2,7 +2,7 @@
   "profiles": {
     "TextProcessing": {
       "commandName": "Project",
-      "commandLineArgs": "input.txt output.txt trzba"
+      "commandLineArgs": "input.txt"
     }
   }
 }
