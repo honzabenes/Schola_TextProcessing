@@ -36,7 +36,7 @@ class WordReaderByChars : IWord(Token)Reader (lepší jako abstract class kvùli co
 		return word;
 	}
 
-	co èíst?
+	co císt?
 
 	ReadToken
 

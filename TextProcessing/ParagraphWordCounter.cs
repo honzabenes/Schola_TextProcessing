@@ -18,9 +18,6 @@
                     CurrentParagraph++;
                     break;
 
-                case TypeToken.EoL:
-                    break;
-
                 default: break;
             }
         }
