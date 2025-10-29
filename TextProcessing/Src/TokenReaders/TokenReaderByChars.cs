@@ -32,10 +32,10 @@ namespace TextProcessing
             // Tokenize if we ended at the end of input
             if (peekChar == -1)
             {
-                // First tokenize end of paragraph if found
-                if (_newLineStreak >= 2)
+                // First tokenize end of paragraph if there was one before
+                if (_wordFound)
                 {
-                    _newLineStreak = 0;
+                    _wordFound = false;   
                     return new Token(TypeToken.EoP);
                 }
 
