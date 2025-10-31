@@ -75,7 +75,7 @@ v cyklu:
 
 Otazky: required, switch na Enum podtrhnuti
 
-pos. tokenu -> class ParagraphDetectingTokenReaderDecurator/Wrapper : ITokenReader
+pos. tokenu -> class ParagraphDetectingTokenReaderDecorator/Wrapper : ITokenReader
 {
 	ctor(ITokenReader)
 
