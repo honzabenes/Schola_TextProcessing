@@ -1,5 +1,8 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Wraps an existing <see cref="ITokenReader"/> and detects paragraph based on EoL tokens.
+    /// </summary>
     public class ParagraphDetectingTokenReaderWrapper : ITokenReader
     {
         private ITokenReader _reader { get; set; }

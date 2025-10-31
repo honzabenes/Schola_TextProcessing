@@ -1,6 +1,8 @@
 ﻿namespace TextProcessing
 {
-    // Tato třída je inspirována kódem Mgr. Pavla Ježka, Ph.D.
+    /// <summary>
+    /// Manages the initialization and cleanup of input and output streams based on command line arguments.
+    /// </summary>
     public class InputOutputState : IDisposable
     {
         public TextReader? Reader {  get; set; }

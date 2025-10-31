@@ -1,5 +1,8 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Processes tokens to count the number of each unique word encountered.
+    /// </summary>
     public class WordFrequencyCounter : ITokenProcessor
     {
         public SortedDictionary<string, int> Words { get; private set; } = new SortedDictionary<string, int>();

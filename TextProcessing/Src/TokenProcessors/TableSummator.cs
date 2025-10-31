@@ -2,6 +2,9 @@
 
 namespace TextProcessing
 {
+    /// <summary>
+    /// Processes tokens for summing values from a given table column.
+    /// </summary>
     public class TableSummator : ITokenProcessor
     {
         private string _sumColumnName { get; init; }

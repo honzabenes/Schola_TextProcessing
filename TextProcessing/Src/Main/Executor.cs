@@ -1,5 +1,9 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Reads all tokens from the given <see cref="ITokenReader"/>, processes them using the specified
+    /// <see cref="ITokenProcessor"/> and writes the output to the provided <see cref="TextWriter"/>
+    /// </summary>
     public static class Executor
     {
         public static void ProcessAllWords(ITokenReader reader, ITokenProcessor processor, TextWriter writer, TextWriter errWriter)

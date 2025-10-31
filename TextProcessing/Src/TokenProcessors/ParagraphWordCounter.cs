@@ -1,5 +1,8 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Processes tokens to count the number of words in each paragraph encountered.
+    /// </summary>
     public class ParagraphWordCounter : ITokenProcessor
     {
         public List<int> ParagraphWordCounts { get; private set; } = new List<int>();

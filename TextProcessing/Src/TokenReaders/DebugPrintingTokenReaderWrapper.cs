@@ -1,5 +1,8 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Wraps an existing <see cref="ITokenReader"/> and prints the tokens to the standard output.
+    /// </summary>
     public class DebugPrintingTokenReaderWrapper : ITokenReader
     {
         private ITokenReader _reader;

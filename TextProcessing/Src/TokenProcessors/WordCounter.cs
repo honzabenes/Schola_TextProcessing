@@ -1,5 +1,8 @@
 ﻿namespace TextProcessing
 {
+    /// <summary>
+    /// Processes tokens to count the total number of words encountered.
+    /// </summary>
     public class WordCounter : ITokenProcessor
     {
         private int _overallCount = 0;

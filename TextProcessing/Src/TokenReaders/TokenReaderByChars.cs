@@ -2,6 +2,9 @@
 
 namespace TextProcessing
 {
+    /// <summary>
+    /// Reads characters from a <see cref="TextReader"/> and converts them into tokens.
+    /// </summary>
     public class TokenReaderByChars : ITokenReader
     {
         private TextReader _reader;
