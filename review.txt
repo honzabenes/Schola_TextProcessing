@@ -1,5 +1,5 @@
 
-=== CVIKA 1 - REVIEW ===
+=== CVIKA 1 ===
 
 1. CLI argumenty
 2. otevrit soubor
@@ -27,7 +27,7 @@ class WordFrequencyCounter : WP
 
 
 
-=== CVIKA 2 - REVIEW ===
+=== CVIKA 2 ===
 
 class WordReaderByChars : IWord(Token)Reader (lepší jako abstract class kvùli constr(TextReader reader)) 
 {
@@ -67,4 +67,35 @@ v cyklu:
 	word = reader.ReadWord()
 
 	processor.ProcessWord(word)
+}
+
+
+=== CVIKA 3 ===
+
+
+Otazky: required, switch na Enum podtrhnuti
+
+pos. tokenu -> class ParagraphDetectingTokenReaderDecurator/Wrapper : ITokenReader
+{
+	ctor(ITokenReader)
+
+	Token ReadToken()
+}
+-> pos. tokenu
+
+
+pos. tokenu -> class DebugPrintingTokenReaderDecorator()
+{
+	ctor(ITokenReader)
+	cw(token)
+}
+-> pos. tokenu
+
+
+Pri cteni po znacich:
+
+ReadToken()
+{
+	r.Read()
+	if (c is whitespace) jak implementovat?: HashSet<char>, List<char>, char[] ... Contains
 }
