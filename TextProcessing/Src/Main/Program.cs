@@ -37,7 +37,7 @@
 
             //Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
             //Executor.ProcessAllWosrds(tokenReader, wordFreqCounter, IOState.Writer!, Console.Out);
-            //Executor.ProcessAllWords(tokenDebugPrintingReader, paragWordCounter, IOState.Writer!, Console.Out);
+            //Executor.ProcessAllWords(tokenParagraphReader, paragWordCounter, IOState.Writer!, Console.Out);
             //Executor.ProcessAllWords(tokenReader, tableSummator, IOState.Writer!, Console.Out);
 
 

@@ -101,6 +101,11 @@
                 return false;
             }
 
+            if (MaxTextWidth <= 0)
+            {
+                return false;
+            }
+
             return true;
         }
 
