@@ -18,7 +18,9 @@
             //    return;
             //}
 
-            TokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader); 
+            ITokenReader tokenDebugPrintingReader = new DebugPrintingTokenReaderWrapper(tokenParagraphReader);   
 
             //ITokenProcessor wordCounter = new WordCounter();
             //ITokenProcessor wordFreqCounter = new WordFrequencyCounter();
@@ -26,8 +28,8 @@
             //ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
 
             //Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
-            //Executor.ProcessAllWords(tokenReader, wordFreqCounter, IOState.Writer!, Console.Out);
-            Executor.ProcessAllWords(tokenReader, paragWordCounter, IOState.Writer!, Console.Out);
+            //Executor.ProcessAllWosrds(tokenReader, wordFreqCounter, IOState.Writer!, Console.Out);
+            Executor.ProcessAllWords(tokenParagraphReader, paragWordCounter, IOState.Writer!, Console.Out);
             //Executor.ProcessAllWords(tokenReader, tableSummator, IOState.Writer!, Console.Out);
 
 

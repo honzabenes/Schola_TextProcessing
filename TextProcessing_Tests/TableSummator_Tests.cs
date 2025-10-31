@@ -16,7 +16,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor tableSummator = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, tableSummator, sw, sw);
@@ -42,7 +42,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -68,7 +68,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -93,7 +93,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -126,7 +126,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -152,7 +152,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -178,7 +178,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -203,7 +203,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Amount");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -228,7 +228,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Discount");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -253,7 +253,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Discount");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -279,7 +279,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -312,7 +312,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -342,7 +342,7 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new TableSummator("Price");
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);

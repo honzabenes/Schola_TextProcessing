@@ -16,10 +16,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -37,10 +38,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -61,10 +63,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -91,10 +94,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -112,10 +116,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -145,10 +150,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert
@@ -202,10 +208,11 @@ namespace TextProcessing_Tests
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new ParagraphWordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader pdtReader = new ParagraphDetectingTokenReaderWrapper(tReader);
 
             // Act
-            Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
+            Executor.ProcessAllWords(pdtReader, wordCounter, sw, sw);
             string? output = sw.ToString().Trim();
 
             // Assert

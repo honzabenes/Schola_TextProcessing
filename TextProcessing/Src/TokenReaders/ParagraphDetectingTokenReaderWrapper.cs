@@ -1,16 +1,17 @@
 ﻿namespace TextProcessing
 {
-    public class ParagraphDetectingTokenReaderDecorator : ITokenReader
+    public class ParagraphDetectingTokenReaderWrapper : ITokenReader
     {
         private ITokenReader _reader { get; set; }
         private Token? _priorityToken = null;
         private int _newLineStreak { get; set; } = 0;
         private bool _wordFound { get; set; } = false;
 
-        public ParagraphDetectingTokenReaderDecorator(ITokenReader reader)
+        public ParagraphDetectingTokenReaderWrapper(ITokenReader reader)
         {
             _reader = reader;
         }
+
 
         public Token ReadToken()
         {
@@ -35,19 +36,19 @@
 
                 return token;
             }
-            else if (_newLineStreak >= 2)
+            
+            if (_newLineStreak >= 2)
             {
                 _newLineStreak = 0;
                 _priorityToken = token;
 
                 return new Token(TypeToken.EoP);
             }
-            else
-            {
-                _newLineStreak = 0;
 
-                return token;
-            }
+            _wordFound = true;
+            _newLineStreak = 0;
+
+            return token;
         }
     }
 }

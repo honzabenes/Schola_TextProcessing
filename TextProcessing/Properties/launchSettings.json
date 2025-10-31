@@ -6,7 +6,7 @@
     },
     "OneParam": {
       "commandName": "Executable",
-      "executablePath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\bin\\Debug\\net9.0\\TextProcessing.exe",
+      "executablePath": "C:\\ADATA\\Programming\\Schola\\Schola_TextProcessing\\TextProcessing\\bin\\Debug\\net9.0\\TextProcessing.exe",
       "commandLineArgs": "src/IO/input.txt"
     },
     "ThreeParams": {

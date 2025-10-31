@@ -2,16 +2,17 @@
 
 namespace TextProcessing
 {
-    public class TokenReaderByChars : TokenReader
+    public class TokenReaderByChars : ITokenReader
     {
-        private int _newLineStreak { get; set; } = 0;
-        private bool _wordFound { get; set; } = false;
+        private TextReader _reader;
 
         public TokenReaderByChars(TextReader reader)
-            : base(reader) { }
+        {
+            _reader = reader;
+        }
 
 
-        public override Token ReadToken()
+        public Token ReadToken()
         {
             int peekChar;
 
@@ -32,13 +33,6 @@ namespace TextProcessing
             // Tokenize if we ended at the end of input
             if (peekChar == -1)
             {
-                // First tokenize end of paragraph if there was one before
-                if (_wordFound)
-                {
-                    _wordFound = false;   
-                    return new Token(TypeToken.EoP);
-                }
-
                 return new Token(TypeToken.EoI);
             }
 
@@ -47,21 +41,8 @@ namespace TextProcessing
             // Move the cursor and tokenize if we ended at new line
             if (currentChar == '\n')
             {
-                // If we have already found a paragraph
-                if (_wordFound)
-                {
-                    _newLineStreak++;
-                }
-
                 _reader.Read();
                 return new Token(TypeToken.EoL);
-            }
-
-            // Tokenize end of paragraph, if we found a new one
-            if (_newLineStreak >= 2)
-            {
-                _newLineStreak = 0;
-                return new Token(TypeToken.EoP);
             }
 
             // Read and tokenize word if we ended at non-white character
@@ -82,9 +63,6 @@ namespace TextProcessing
             }
 
             string word = wordBuilder.ToString();
-
-            _newLineStreak = 0;
-            _wordFound = true;
 
             return new Token(word);
         }

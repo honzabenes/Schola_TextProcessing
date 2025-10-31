@@ -15,7 +15,7 @@
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new WordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -36,7 +36,7 @@
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new WordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -62,7 +62,7 @@
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new WordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);
@@ -90,7 +90,7 @@
             var sr = new StringReader(input);
 
             ITokenProcessor wordCounter = new WordCounter();
-            TokenReader tReader = new TokenReaderByChars(sr);
+            ITokenReader tReader = new TokenReaderByChars(sr);
 
             // Act
             Executor.ProcessAllWords(tReader, wordCounter, sw, sw);

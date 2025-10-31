@@ -2,7 +2,7 @@
 {
     public static class Executor
     {
-        public static void ProcessAllWords(TokenReader reader, ITokenProcessor processor, TextWriter writer, TextWriter errWriter)
+        public static void ProcessAllWords(ITokenReader reader, ITokenProcessor processor, TextWriter writer, TextWriter errWriter)
         {
             try
             {
