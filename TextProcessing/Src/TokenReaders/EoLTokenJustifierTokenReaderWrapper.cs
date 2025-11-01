@@ -4,14 +4,14 @@
     {
         private ITokenReader _reader { get; set; }
         private Token? _priorityToken = null;
-        private int MaxLineWidth { get; init; }
-        private int currentLineWidth { get; set; } = 0;
+        private int _maxLineWidth { get; init; }
+        private int _currentLineWidth { get; set; } = 0;
         private const int MIN_SPACE_WIDTH = 1;
 
         public EoLTokenJustifierTokenReaderWrapper(ITokenReader reader, int maxLineWidth)
         {
             _reader = reader;
-            MaxLineWidth = maxLineWidth;
+            _maxLineWidth = maxLineWidth;
         }
 
 
@@ -23,6 +23,7 @@
             {
                 token = (Token)_priorityToken;
                 _priorityToken = null;
+                _currentLineWidth += 1; // Add space
                 return token;
             }
 
@@ -30,23 +31,29 @@
 
             if (token.Type == TypeToken.Word)
             {
-                currentLineWidth += token.Word!.Length;
+                _currentLineWidth += token.Word!.Length;
 
-                if (currentLineWidth > MaxLineWidth)
+                if (_currentLineWidth > _maxLineWidth)
                 {
-                    _priorityToken = token;
-                    currentLineWidth = token.Word!.Length;
-                    return new Token(TypeToken.EoL);
+                    // If the word isn't the only one on the line
+                    if (_currentLineWidth != token.Word!.Length)
+                    {
+                        _priorityToken = token;
+                        _currentLineWidth = token.Word!.Length;
+                        return new Token(TypeToken.EoL);
+                    }
+                    
+                    return token;
                 }
 
-                currentLineWidth += MIN_SPACE_WIDTH;
+                _currentLineWidth += MIN_SPACE_WIDTH;
 
                 return token;
             }
 
             if (token.Type == TypeToken.EoP)
             {
-                currentLineWidth = 0;
+                _currentLineWidth = 0;
                 _priorityToken = token;
 
                 return new Token(TypeToken.EoL);

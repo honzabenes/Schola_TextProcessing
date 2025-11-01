@@ -16,6 +16,9 @@
             {
                 case TypeToken.Word:
                     _writer.Write(token.Word);
+                    break;
+
+                case TypeToken.Space:
                     _writer.Write(" ");
                     break;
 
@@ -24,7 +27,7 @@
                     break;
 
                 case TypeToken.EoP:
-                    _writer.Write('\n');
+                    _writer.Write("\n\n");
                     break;
 
                 case TypeToken.EoI:
@@ -38,6 +41,7 @@
 
         public void WriteOut(TextWriter writer)
         {
+            _writer.WriteLine("\nNot implemented WriteOut!!!");
             return;
         }
     }

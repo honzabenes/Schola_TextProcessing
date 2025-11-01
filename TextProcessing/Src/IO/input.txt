@@ -1,7 +1,3 @@
-Hello world,
-today is very nice
-weather,
-
-
-I should probably go out and be happy,
+jabdbdsfdsfdds
+Should probably go out and be happy,
 but I have to write this program.

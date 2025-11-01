@@ -3,6 +3,7 @@
     public enum TypeToken
     { 
         Word,
+        Space,
         EoI,
         EoL,
         EoP
