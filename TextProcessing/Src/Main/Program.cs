@@ -101,6 +101,7 @@
             ITokenReader paragraphDetectingTokenReaderWrapper = new ParagraphDetectingTokenReaderWrapper(tokenReader);
             ITokenReader tokenEoLJustifier = new EoLTokenJustifierTokenReaderWrapper(paragraphDetectingTokenReaderWrapper, IOState.MaxTextWidth);
             ITokenReader spaceAddingTokenReaderWrapper = new SpaceAddingTokenReaderWrapper(tokenEoLJustifier, IOState.MaxTextWidth);
+            //ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(tokenEoLJustifier);
             ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(spaceAddingTokenReaderWrapper);
 
             ITokenProcessor textPrinter = new TextPrinter(IOState.Writer!);

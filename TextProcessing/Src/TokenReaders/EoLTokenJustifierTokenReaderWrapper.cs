@@ -54,9 +54,9 @@
             if (token.Type == TypeToken.EoP)
             {
                 _currentLineWidth = 0;
-                _priorityToken = token;
+                //_priorityToken = token;
 
-                return new Token(TypeToken.EoL);
+                return new Token(TypeToken.EoP);
             }
 
             return token;
