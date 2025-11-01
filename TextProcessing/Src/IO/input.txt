@@ -1,10 +1,7 @@
+Hello world,
+today is very nice
+weather,
 
 
-
-                Hello world.
-
-                    What a nice day.
-                        
-
-               This is a test.
-
+I should probably go out and be happy,
+but I have to write this program.

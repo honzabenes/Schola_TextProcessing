@@ -4,14 +4,17 @@
       "commandName": "WSL2",
       "distributionName": ""
     },
-    "OneParam": {
-      "commandName": "Executable",
-      "executablePath": "C:\\ADATA\\Programming\\Schola\\Schola_TextProcessing\\TextProcessing\\bin\\Debug\\net9.0\\TextProcessing.exe",
-      "commandLineArgs": "src/IO/input.txt"
-    },
-    "ThreeParams": {
+    "TableSummator": {
       "commandName": "Project",
       "commandLineArgs": "src/IO/input.txt output.txt trzba"
+    },
+    "WordCounters": {
+      "commandName": "Project",
+      "commandLineArgs": "src/IO/input.txt"
+    },
+    "TextJustifier": {
+      "commandName": "Project",
+      "commandLineArgs": "src/IO/input.txt output.txt 20"
     }
   }
 }

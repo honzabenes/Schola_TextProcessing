@@ -8,7 +8,7 @@
         public TextReader? Reader {  get; set; }
         public TextWriter? Writer { get; set; }
         public string? ColumnName { get; private set; }
-        public int? MaxTextWidth { get; private set; }
+        public int MaxTextWidth { get; private set; }
 
         public const string FileErrorMessage = "File Error";
         public const string ArgumentErrorMessage = "Argument Error";

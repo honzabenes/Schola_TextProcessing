@@ -4,42 +4,105 @@
     {
         static void Main(string[] args)
         {
+            RunTextJustifier(args);
+        }
+
+
+        private static void RunWordCounter(string[] args)
+        {
             var IOState = new InputOutputState();
 
-            // IOState for Word Counter, Word Frequency Counter, Paragraph Word Counter
-            //if (!IOState.InitializeReaderFromCLIArguments(args))
-            //{
-            //    return;
-            //}
+            if (!IOState.InitializeReaderFromCLIArguments(args))
+            {
+                return;
+            }
 
-            // IOState for Table Summator
-            //if (!IOState.InitializeReaderWriterAndColumnNameFromCLIArguments(args))
-            //{
-            //    return;
-            //}
+            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
 
-            // IOState for Text Justifier
+            ITokenProcessor wordCounter = new WordCounter();
+
+            Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
+
+            IOState.Dispose();
+        }
+
+
+        private static void RunWordFrequencyCounter(string[] args)
+        {
+            var IOState = new InputOutputState();
+
+            if (!IOState.InitializeReaderFromCLIArguments(args))
+            {
+                return;
+            }
+
+            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+
+            ITokenProcessor wordFrequencyCounter = new WordFrequencyCounter();
+
+            Executor.ProcessAllWords(tokenReader, wordFrequencyCounter, IOState.Writer!, Console.Out);
+
+            IOState.Dispose();
+        }
+
+
+        private static void RunParagraphWordCounter(string[] args)
+        {
+            var IOState = new InputOutputState();
+
             if (!IOState.InitializeReaderWriterAndMaxTextWidthFromCLIArguments(args))
             {
                 return;
             }
 
-
-            // Token Reader pipeline
             ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
-            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader); 
-            ITokenReader tokenDebugPrintingReader = new DebugPrintingTokenReaderWrapper(tokenParagraphReader);   
+            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
 
-            //ITokenProcessor wordCounter = new WordCounter();
-            //ITokenProcessor wordFreqCounter = new WordFrequencyCounter();
-            //ITokenProcessor paragWordCounter = new ParagraphWordCounter();
-            //ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
+            ITokenProcessor paragraphWordCounter = new ParagraphWordCounter();
 
-            //Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
-            //Executor.ProcessAllWosrds(tokenReader, wordFreqCounter, IOState.Writer!, Console.Out);
-            //Executor.ProcessAllWords(tokenParagraphReader, paragWordCounter, IOState.Writer!, Console.Out);
-            //Executor.ProcessAllWords(tokenReader, tableSummator, IOState.Writer!, Console.Out);
+            Executor.ProcessAllWords(tokenParagraphReader, paragraphWordCounter, IOState.Writer!, Console.Out);
 
+            IOState.Dispose();
+        }
+
+
+        private static void RunTableSummator(string[] args)
+        {
+            var IOState = new InputOutputState();
+
+            if (!IOState.InitializeReaderWriterAndColumnNameFromCLIArguments(args))
+            {
+                return;
+            }
+
+            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
+
+            ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
+
+            Executor.ProcessAllWords(tokenParagraphReader, tableSummator, IOState.Writer!, Console.Out);
+
+            IOState.Dispose();
+        }
+
+        
+        private static void RunTextJustifier(string[] args)
+        {
+            var IOState = new InputOutputState();
+
+            if (!IOState.InitializeReaderWriterAndMaxTextWidthFromCLIArguments(args))
+            {
+                return;
+            }
+
+            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
+            ITokenReader tokenEoLJustifier = new EoLTokenJustifierTokenReaderWrapper(tokenParagraphReader, IOState.MaxTextWidth);
+            ITokenReader tokenDebugPrintingReader = new DebugPrintingTokenReaderWrapper(tokenEoLJustifier);
+
+            ITokenProcessor textPrinter = new TextPrinter(Console.Out);
+
+            Executor.ProcessAllWords(tokenEoLJustifier, textPrinter, Console.Out, Console.Out);
 
             IOState.Dispose();
         }

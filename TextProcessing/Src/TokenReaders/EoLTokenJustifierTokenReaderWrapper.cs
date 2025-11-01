@@ -3,8 +3,8 @@
     public class EoLTokenJustifierTokenReaderWrapper : ITokenReader
     {
         private ITokenReader _reader { get; set; }
-        private int MaxLineWidth { get; init; }
         private Token? _priorityToken = null;
+        private int MaxLineWidth { get; init; }
         private int currentLineWidth { get; set; } = 0;
         private const int MIN_SPACE_WIDTH = 1;
 
@@ -26,10 +26,7 @@
                 return token;
             }
 
-            while ((token = _reader.ReadToken()) is { Type: TypeToken.EoL })
-            {
-                token = _reader.ReadToken();
-            }
+            while ((token = _reader.ReadToken()) is { Type: TypeToken.EoL }) { }
 
             if (token.Type == TypeToken.Word)
             {
@@ -38,13 +35,11 @@
                 if (currentLineWidth > MaxLineWidth)
                 {
                     _priorityToken = token;
+                    currentLineWidth = token.Word!.Length;
                     return new Token(TypeToken.EoL);
                 }
 
-                if (currentLineWidth < MaxLineWidth)
-                {
-                    currentLineWidth += MIN_SPACE_WIDTH;
-                }
+                currentLineWidth += MIN_SPACE_WIDTH;
 
                 return token;
             }
