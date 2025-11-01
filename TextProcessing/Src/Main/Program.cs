@@ -8,6 +8,8 @@
         }
 
 
+        // Text Processors
+
         private static void RunWordCounter(string[] args)
         {
             var IOState = new InputOutputState();
