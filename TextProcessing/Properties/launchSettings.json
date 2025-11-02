@@ -14,7 +14,7 @@
     },
     "TextJustifier": {
       "commandName": "Project",
-      "commandLineArgs": "src/IO/LoremIpsum.txt output.txt 80"
+      "commandLineArgs": "src/IO/LoremIpsum.txt output.txt 20"
     }
   }
 }

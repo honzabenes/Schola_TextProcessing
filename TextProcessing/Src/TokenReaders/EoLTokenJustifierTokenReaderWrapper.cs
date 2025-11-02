@@ -27,11 +27,13 @@
             {
                 token = (Token)_priorityToken;
                 _priorityToken = null;
+
                 _currentLineWidth += 1; // Add space
+
                 return token;
             }
 
-            // Skip End of Lines
+            // Skip End of Line tokens
             while ((token = _reader.ReadToken()) is { Type: TypeToken.EoL }) { }
 
             if (token.Type == TypeToken.Word)
@@ -40,15 +42,16 @@
 
                 if (_currentLineWidth > _maxLineWidth)
                 {
-                    // If the word isn't the only one on the line
-                    if (_currentLineWidth != token.Word!.Length)
+                    // If there's only one word on the line
+                    if (_currentLineWidth == token.Word!.Length)
                     {
-                        _priorityToken = token;
-                        _currentLineWidth = token.Word!.Length;
-                        return new Token(TypeToken.EoL);
+                        return token;
                     }
-                    
-                    return token;
+
+                    // Else we need to sent End of Line first
+                    _priorityToken = token;
+                    _currentLineWidth = token.Word!.Length;
+                    return new Token(TypeToken.EoL);
                 }
 
                 _currentLineWidth += MIN_SPACE_WIDTH;
@@ -59,7 +62,6 @@
             if (token.Type == TypeToken.EoP)
             {
                 _currentLineWidth = 0;
-                //_priorityToken = token;
 
                 return new Token(TypeToken.EoP);
             }
