@@ -28,13 +28,19 @@
                 token = (Token)_priorityToken;
                 _priorityToken = null;
 
-                _currentLineWidth += 1; // Add space
+                if (token.Type == TypeToken.Word)
+                {
+                    _currentLineWidth = token.Word!.Length + MIN_SPACE_WIDTH;
+                }
 
                 return token;
             }
 
             // Skip End of Line tokens
-            while ((token = _reader.ReadToken()) is { Type: TypeToken.EoL }) { }
+            while ((token = _reader.ReadToken()) is { Type: TypeToken.EoL }) 
+            {
+                continue;
+            }
 
             if (token.Type == TypeToken.Word)
             {
@@ -45,12 +51,17 @@
                     // If there's only one word on the line
                     if (_currentLineWidth == token.Word!.Length)
                     {
+                        _currentLineWidth = 0;
+
+                        _priorityToken = new Token(TypeToken.EoL);
+
                         return token;
                     }
 
                     // Else we need to sent End of Line first
                     _priorityToken = token;
-                    _currentLineWidth = token.Word!.Length;
+                    _currentLineWidth = 0;
+
                     return new Token(TypeToken.EoL);
                 }
 
