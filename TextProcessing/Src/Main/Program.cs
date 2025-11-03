@@ -19,21 +19,27 @@
                 return;
             }
 
-            // Token Reader Pipeline
-            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
-            ITokenReader paragraphDetectingTokenReaderWrapper = new ParagraphDetectingTokenReaderWrapper(tokenReader);
-            ITokenReader tokenEoLJustifier = new EoLTokenJustifierTokenReaderWrapper(paragraphDetectingTokenReaderWrapper, IOState.MaxTextWidth);
-            ITokenReader spaceAddingTokenReaderWrapper = new SpaceAddingTokenReaderWrapper(tokenEoLJustifier, IOState.MaxTextWidth);
-            // Debug wrapper
-            ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(spaceAddingTokenReaderWrapper);
-            // Overall wrapper
-            ITokenReader tokenReaderWrapper = spaceAddingTokenReaderWrapper;
+            ITokenReader tokenReader = CreatePipeline(IOState.Reader!, IOState.MaxTextWidth);
 
-            TextPrinter textPrinter = new TextPrinter(tokenReaderWrapper, IOState.Writer!);
+            // Debug wrapper
+            //ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(tokenReader);
+
+            TextPrinter textPrinter = new TextPrinter(tokenReader, IOState.Writer!);
 
             textPrinter.PrintAllTokens();
 
             IOState.Dispose();
+        }
+
+
+        public static ITokenReader CreatePipeline(TextReader reader, int maxTextWidth)
+        {
+            ITokenReader tokenReaderByChars = new TokenReaderByChars(reader);
+            ITokenReader paragraphDetectingTokenReaderWrapper = new ParagraphDetectingTokenReaderWrapper(tokenReaderByChars);
+            ITokenReader tokenEoLJustifier = new EoLTokenJustifierTokenReaderWrapper(paragraphDetectingTokenReaderWrapper, maxTextWidth);
+            ITokenReader tokenSpaceAddingReader = new SpaceAddingTokenReaderWrapper(tokenEoLJustifier, maxTextWidth);
+
+            return tokenSpaceAddingReader;
         }
 
 
