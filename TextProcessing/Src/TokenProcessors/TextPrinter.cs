@@ -30,6 +30,8 @@
 
         private void PrintToken(Token token)
         {
+            char newLineChar = '\n';
+
             switch (token.Type)
             {
                 case TypeToken.Word:
@@ -41,16 +43,18 @@
                     break;
 
                 case TypeToken.EoL:
-                    _writer.WriteLine();
+                    _writer.Write(newLineChar);
                     break;
 
                 case TypeToken.EoP:
-                    _writer.WriteLine();
-                    _writer.WriteLine();
+                    for (int i = 0; i < 2; i++)
+                    {
+                        _writer.Write(newLineChar);
+                    }
                     break;
 
                 case TypeToken.EoI:
-                    _writer.WriteLine();
+                    _writer.Write(newLineChar);
                     break;
 
                 default:
