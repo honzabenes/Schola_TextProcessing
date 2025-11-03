@@ -19,12 +19,12 @@
                 return;
             }
 
-            ITokenReader tokenReader = CreatePipeline(IOState.Reader!, IOState.MaxTextWidth);
+            ITokenReader tokenReader = CreateTokenReaderPipelineForLineJustifier(IOState.Reader!, IOState.MaxTextWidth);
 
             // Debug wrapper
-            //ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(tokenReader);
+            ITokenReader debugPrintingTokenReaderWrapper = new DebugPrintingTokenReaderWrapper(tokenReader);
 
-            TextPrinter textPrinter = new TextPrinter(tokenReader, IOState.Writer!);
+            TextPrinter textPrinter = new TextPrinter(debugPrintingTokenReaderWrapper, IOState.Writer!);
 
             textPrinter.PrintAllTokens();
 
@@ -32,7 +32,7 @@
         }
 
 
-        public static ITokenReader CreatePipeline(TextReader reader, int maxTextWidth)
+        public static ITokenReader CreateTokenReaderPipelineForLineJustifier(TextReader reader, int maxTextWidth)
         {
             ITokenReader tokenReaderByChars = new TokenReaderByChars(reader);
             ITokenReader paragraphDetectingTokenReaderWrapper = new ParagraphDetectingTokenReaderWrapper(tokenReaderByChars);
@@ -43,81 +43,81 @@
         }
 
 
-        private static void RunWordCounter(string[] args)
-        {
-            var IOState = new InputOutputState();
+        //    private static void RunWordCounter(string[] args)
+        //    {
+        //        var IOState = new InputOutputState();
 
-            if (!IOState.InitializeReaderFromCLIArguments(args))
-            {
-                return;
-            }
+        //        if (!IOState.InitializeReaderFromCLIArguments(args))
+        //        {
+        //            return;
+        //        }
 
-            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+        //        ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
 
-            ITokenProcessor wordCounter = new WordCounter();
+        //        ITokenProcessor wordCounter = new WordCounter();
 
-            Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
+        //        Executor.ProcessAllWords(tokenReader, wordCounter, IOState.Writer!, Console.Out);
 
-            IOState.Dispose();
-        }
-
-
-        private static void RunWordFrequencyCounter(string[] args)
-        {
-            var IOState = new InputOutputState();
-
-            if (!IOState.InitializeReaderFromCLIArguments(args))
-            {
-                return;
-            }
-
-            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
-
-            ITokenProcessor wordFrequencyCounter = new WordFrequencyCounter();
-
-            Executor.ProcessAllWords(tokenReader, wordFrequencyCounter, IOState.Writer!, Console.Out);
-
-            IOState.Dispose();
-        }
+        //        IOState.Dispose();
+        //    }
 
 
-        private static void RunParagraphWordCounter(string[] args)
-        {
-            var IOState = new InputOutputState();
+        //    private static void RunWordFrequencyCounter(string[] args)
+        //    {
+        //        var IOState = new InputOutputState();
 
-            if (!IOState.InitializeReaderWriterAndMaxTextWidthFromCLIArguments(args))
-            {
-                return;
-            }
+        //        if (!IOState.InitializeReaderFromCLIArguments(args))
+        //        {
+        //            return;
+        //        }
 
-            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
-            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
+        //        ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
 
-            ITokenProcessor paragraphWordCounter = new ParagraphWordCounter();
+        //        ITokenProcessor wordFrequencyCounter = new WordFrequencyCounter();
 
-            Executor.ProcessAllWords(tokenParagraphReader, paragraphWordCounter, IOState.Writer!, Console.Out);
+        //        Executor.ProcessAllWords(tokenReader, wordFrequencyCounter, IOState.Writer!, Console.Out);
 
-            IOState.Dispose();
-        }
+        //        IOState.Dispose();
+        //    }
 
 
-        private static void RunTableSummator(string[] args)
-        {
-            var IOState = new InputOutputState();
+        //    private static void RunParagraphWordCounter(string[] args)
+        //    {
+        //        var IOState = new InputOutputState();
 
-            if (!IOState.InitializeReaderWriterAndColumnNameFromCLIArguments(args))
-            {
-                return;
-            }
+        //        if (!IOState.InitializeReaderWriterAndMaxTextWidthFromCLIArguments(args))
+        //        {
+        //            return;
+        //        }
 
-            ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
-            ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
+        //        ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+        //        ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
 
-            ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
+        //        ITokenProcessor paragraphWordCounter = new ParagraphWordCounter();
 
-            Executor.ProcessAllWords(tokenParagraphReader, tableSummator, IOState.Writer!, Console.Out);
+        //        Executor.ProcessAllWords(tokenParagraphReader, paragraphWordCounter, IOState.Writer!, Console.Out);
 
-            IOState.Dispose();
-        }
+        //        IOState.Dispose();
+        //    }
+
+
+        //    private static void RunTableSummator(string[] args)
+        //    {
+        //        var IOState = new InputOutputState();
+
+        //        if (!IOState.InitializeReaderWriterAndColumnNameFromCLIArguments(args))
+        //        {
+        //            return;
+        //        }
+
+        //        ITokenReader tokenReader = new TokenReaderByChars(IOState.Reader!);
+        //        ITokenReader tokenParagraphReader = new ParagraphDetectingTokenReaderWrapper(tokenReader);
+
+        //        ITokenProcessor tableSummator = new TableSummator(IOState.ColumnName!);
+
+        //        Executor.ProcessAllWords(tokenParagraphReader, tableSummator, IOState.Writer!, Console.Out);
+
+        //        IOState.Dispose();
+        //    }
     }
 }

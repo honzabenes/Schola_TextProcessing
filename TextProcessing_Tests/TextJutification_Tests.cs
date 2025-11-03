@@ -1,4 +1,6 @@
-﻿namespace TextProcessing_Tests
+﻿using System;
+
+namespace TextProcessing_Tests
 {
     public class TextJustification_Tests
     {
@@ -16,7 +18,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -50,7 +52,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -88,7 +90,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -102,6 +104,116 @@
                 Loremnam
                 ad nam. Cu
                 qu
+                """;
+
+            // Assert
+            Assert.Equal(expected, output);
+        }
+
+
+        [Fact]
+        public void SameSpaceWidthsOnTheWholeLine()
+        {
+            // Arrange
+            string input = """
+                Lorem ipsum, meliore albucius torquatos p
+                """;
+
+            int maxTextWidth = 20;
+
+
+            var sw = new StringWriter();
+            Console.SetOut(sw);
+
+            var sr = new StringReader(input);
+
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
+
+            var textPrinter = new TextPrinter(tokenReader, sw);
+
+
+            // Act
+            textPrinter.PrintAllTokens();
+
+            string? output = sw.ToString().Trim();
+
+            string expected = """
+                Lorem ipsum, meliore
+                albucius torquatos p
+                """;
+
+            // Assert
+            Assert.Equal(expected, output);
+        }
+
+
+        [Fact]
+        public void DifferentSpaceWidthsOnTheLine()
+        {
+            // Arrange
+            string input ="""
+                Lorem ipsum cu pri
+                Lorem ipsum dolor si
+                """;
+
+            int maxTextWidth = 20;
+
+
+            var sw = new StringWriter();
+            Console.SetOut(sw);
+
+            var sr = new StringReader(input);
+
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
+
+            var textPrinter = new TextPrinter(tokenReader, sw);
+
+
+            // Act
+            textPrinter.PrintAllTokens();
+
+            string? output = sw.ToString().Trim();
+
+            string expected = """
+                Lorem  ipsum  cu pri
+                Lorem ipsum dolor si
+                """;
+
+            // Assert
+            Assert.Equal(expected, output);
+        }
+
+
+        [Fact]
+        public void LastLineJustifiedToLeftWithNormalSpaces()
+        {
+            // Arrange
+            string input = """
+                Lorem ipsum dolor si
+                Lorem ipsum
+                """;
+
+            int maxTextWidth = 20;
+
+
+            var sw = new StringWriter();
+            Console.SetOut(sw);
+
+            var sr = new StringReader(input);
+
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
+
+            var textPrinter = new TextPrinter(tokenReader, sw);
+
+
+            // Act
+            textPrinter.PrintAllTokens();
+
+            string? output = sw.ToString().Trim();
+
+            string expected = """
+                Lorem ipsum dolor si
+                Lorem ipsum
                 """;
 
             // Assert
@@ -130,7 +242,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -193,7 +305,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -250,7 +362,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
@@ -354,7 +466,7 @@
 
             var sr = new StringReader(input);
 
-            ITokenReader tokenReader = Program.CreatePipeline(sr, maxTextWidth);
+            ITokenReader tokenReader = Program.CreateTokenReaderPipelineForLineJustifier(sr, maxTextWidth);
 
             var textPrinter = new TextPrinter(tokenReader, sw);
 
