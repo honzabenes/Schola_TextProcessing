@@ -150,3 +150,6 @@ Execute(IProgramCore prg)
 		
 	}
 }
+
+
+Unit testy ?
