@@ -1,4 +1,4 @@
-﻿namespace TextProcessing
+﻿namespace TokenProcessingFramework
 {
     /// <summary>
     /// Wraps an existing <see cref="ITokenReader"/> for text justification implementation based

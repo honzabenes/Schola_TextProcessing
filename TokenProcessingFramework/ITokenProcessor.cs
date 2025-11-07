@@ -1,4 +1,4 @@
-﻿namespace TextProcessing
+﻿namespace TokenProcessingFramework
 {
     /// <summary>
     /// Defines a contract for processing tokens and reporting the results.

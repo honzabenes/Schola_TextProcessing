@@ -1,4 +1,4 @@
-﻿namespace TextProcessing
+﻿namespace TokenProcessingFramework
 {
     /// <summary>
     /// Wraps an existing <see cref="ITokenReader"/> and prints the tokens to the standard output.

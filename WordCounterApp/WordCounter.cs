@@ -1,4 +1,6 @@
-﻿namespace TextProcessing
+﻿using TokenProcessingFramework;
+
+namespace WordCounterApp
 {
     /// <summary>
     /// Processes tokens to count the total number of words encountered.

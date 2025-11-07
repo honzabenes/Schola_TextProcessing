@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace TextProcessing
+namespace TokenProcessingFramework
 {
     /// <summary>
     /// Reads characters from a <see cref="TextReader"/> and converts them into tokens.

@@ -1,4 +1,4 @@
-﻿namespace TextProcessing
+﻿namespace TokenProcessingFramework
 {
     public enum TypeToken
     { 

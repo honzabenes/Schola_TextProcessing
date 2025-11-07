@@ -1,4 +1,4 @@
-﻿namespace TextProcessing
+﻿namespace TokenProcessingFramework
 {
     /// <summary>
     /// Wraps an existing <see cref="ITokenReader"/> and detects paragraph based on EoL tokens.

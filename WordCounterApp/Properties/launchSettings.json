@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WordCounterApp": {
+      "commandName": "Project",
+      "commandLineArgs": "input.txt"
+    }
+  }
+}
