@@ -1,6 +1,6 @@
 ﻿using TokenProcessingFramework;
 
-namespace ParagraphWordCounter
+namespace ParagraphWordCounterApp
 {
     /// <summary>
     /// Processes tokens to count the number of words in each paragraph encountered.

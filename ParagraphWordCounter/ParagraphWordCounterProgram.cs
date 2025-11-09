@@ -1,7 +1,7 @@
 ﻿using TokenProcessingFramework;
 using FileProcessingConsoleAppFramework;
 
-namespace ParagraphWordCounter
+namespace ParagraphWordCounterApp
 {
     internal class Program
     {
