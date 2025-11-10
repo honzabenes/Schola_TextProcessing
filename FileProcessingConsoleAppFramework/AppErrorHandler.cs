@@ -1,5 +1,8 @@
 ﻿namespace FileProcessingConsoleAppFramework
 {
+    /// <summary>
+    /// Handler for executing the core program and catching application exceptions.
+    /// </summary>
     public class AppErrorHandler(TextWriter errorOutput)
     {
         protected TextWriter ErrorOutput = errorOutput;
