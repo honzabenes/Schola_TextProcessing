@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphWordCounterApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableSummatorApp", "..\TableSummatorApp\TableSummatorApp.csproj", "{3BDCEE91-306A-4A42-A546-14B21B7509B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextJustifierApp", "..\TextJustifierApp\TextJustifierApp.csproj", "{1A6627E1-906E-4368-AB53-C18C04410F67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{3BDCEE91-306A-4A42-A546-14B21B7509B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BDCEE91-306A-4A42-A546-14B21B7509B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BDCEE91-306A-4A42-A546-14B21B7509B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6627E1-906E-4368-AB53-C18C04410F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6627E1-906E-4368-AB53-C18C04410F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6627E1-906E-4368-AB53-C18C04410F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6627E1-906E-4368-AB53-C18C04410F67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{90CFE8F6-BA2E-42A4-9E13-25794BF0ECA3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{116173B0-3194-487B-BEE4-BB87BCA629D9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{3BDCEE91-306A-4A42-A546-14B21B7509B1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1A6627E1-906E-4368-AB53-C18C04410F67} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B7CD0FA-CDFE-4F7D-A4A8-882D61C526B3}

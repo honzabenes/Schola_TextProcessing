@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextJustifierApp": {
+      "commandName": "Project",
+      "commandLineArgs": "LoremIpsum.txt output.txt 40"
+    }
+  }
+}

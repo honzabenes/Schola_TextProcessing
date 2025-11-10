@@ -60,6 +60,30 @@
         }
 
 
+        public int ParsePositiveIntFromArgument(int argument)
+        {
+            try
+            {
+                int result = int.Parse(_args[argument]);
+
+                if (result <= 0)
+                {
+                    throw new InvalidArgumentApplicationException();
+                }
+
+                return result;
+            }
+            catch (FormatException)
+            {
+                throw new InvalidArgumentApplicationException();
+            }
+            catch (OverflowException)
+            {
+                throw new InvalidArgumentApplicationException();
+            }
+        }
+
+
         public void Dispose()
         {
             Reader?.Dispose();
