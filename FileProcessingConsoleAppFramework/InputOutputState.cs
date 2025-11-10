@@ -8,15 +8,12 @@
         public TextReader? Reader {  get; set; }
         public TextWriter? Writer { get; set; }
 
-        public const string FileErrorMessage = "File Error";
-        public const string ArgumentErrorMessage = "Argument Error";
-
 
         public void CheckArgumentsCount(int expectedCount)
         {
             if (_args.Length != expectedCount)
             {
-                throw new InvalidArgumentApplicationException(ArgumentErrorMessage);
+                throw new InvalidArgumentApplicationException();
             }
         }
 
@@ -29,15 +26,15 @@
             }
             catch (IOException)
             {
-                throw new FileAccesErrorApplicationException(FileErrorMessage);
+                throw new FileAccesErrorApplicationException();
             }
             catch (UnauthorizedAccessException)
             {
-                throw new FileAccesErrorApplicationException(FileErrorMessage);
+                throw new FileAccesErrorApplicationException();
             }
             catch (ArgumentException)
             {
-                throw new InvalidArgumentApplicationException(ArgumentErrorMessage);
+                throw new InvalidArgumentApplicationException();
             }
         }
 
@@ -46,19 +43,19 @@
         {
             try
             {
-                Reader = new StreamReader(_args[argument]);
+                Writer = new StreamWriter(_args[argument]);
             }
             catch (IOException)
             {
-                throw new FileAccesErrorApplicationException(FileErrorMessage);
+                throw new FileAccesErrorApplicationException();
             }
             catch (UnauthorizedAccessException)
             {
-                throw new FileAccesErrorApplicationException(FileErrorMessage);
+                throw new FileAccesErrorApplicationException();
             }
             catch (ArgumentException)
             {
-                throw new InvalidArgumentApplicationException(ArgumentErrorMessage);
+                throw new InvalidArgumentApplicationException();
             }
         }
 

@@ -2,7 +2,8 @@
 {
     public class AppErrorHandler(TextWriter errorOutput)
     {
-        private TextWriter _errorOutput { get; set; } = errorOutput;
+        protected TextWriter ErrorOutput = errorOutput;
+
 
         public void Execute(IProgramCore program, string[] args)
         {
@@ -10,9 +11,13 @@
             {
                 program.Run(args);
             }
-            catch (ApplicationException appEx)
+            catch (InvalidArgumentApplicationException)
             {
-                _errorOutput.WriteLine(appEx.Message);
+                ErrorOutput.WriteLine("Argument Error");
+            }
+            catch (FileAccesErrorApplicationException)
+            {
+                ErrorOutput.WriteLine("File Error");
             }
         }
     }

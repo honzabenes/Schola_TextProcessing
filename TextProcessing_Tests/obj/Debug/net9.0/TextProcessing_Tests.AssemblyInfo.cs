@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TextProcessing_Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84e4886346229b002b4fb99ca31930fdd1081e8b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459b6ef5c98e369a9f2d4bf2c4cad2a8cd679ffd")]
 [assembly: System.Reflection.AssemblyProductAttribute("TextProcessing_Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TextProcessing_Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

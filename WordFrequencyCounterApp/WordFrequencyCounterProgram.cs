@@ -23,6 +23,7 @@ namespace WordFrequencyCounterApp
             IOState.OpenInputFile(0);
 
             var tokenReader = new ByCharsTokenReader(IOState.Reader!);
+
             var wordFrequencyCounter = new WordFrequencyCounter();
 
             TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordFrequencyCounter);

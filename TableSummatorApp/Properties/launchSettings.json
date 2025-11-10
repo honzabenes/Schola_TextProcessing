@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TableSummatorApp": {
+      "commandName": "Project",
+      "commandLineArgs": "input.txt output.txt cena"
+    }
+  }
+}

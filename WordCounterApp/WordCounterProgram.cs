@@ -24,6 +24,7 @@ namespace WordCounterApp
             IOState.OpenInputFile(0);
 
             var tokenReader = new ByCharsTokenReader(IOState.Reader!);
+
             var wordCounter = new WordCounter();
 
             TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordCounter);

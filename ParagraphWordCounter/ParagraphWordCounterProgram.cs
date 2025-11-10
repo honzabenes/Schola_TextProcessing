@@ -1,5 +1,5 @@
-﻿using TokenProcessingFramework;
-using FileProcessingConsoleAppFramework;
+﻿using FileProcessingConsoleAppFramework;
+using TokenProcessingFramework;
 
 namespace ParagraphWordCounterApp
 {
@@ -25,6 +25,7 @@ namespace ParagraphWordCounterApp
 
             var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
             var baseReader = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
+
             var paragraphWordCounter = new ParagraphWordCounter();
 
             TokenProcessing.ProcessTokensUntilEndOfInput(baseReader, paragraphWordCounter);
