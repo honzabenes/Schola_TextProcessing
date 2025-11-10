@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj": {}
+    "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj": {}
   },
   "projects": {
-    "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\TextProcessing.csproj": {
+    "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\TextProcessing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\TextProcessing.csproj",
+        "projectUniqueName": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\TextProcessing.csproj",
         "projectName": "TextProcessing",
-        "projectPath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\TextProcessing.csproj",
+        "projectPath": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\TextProcessing.csproj",
         "packagesPath": "C:\\Users\\jenda\\.nuget\\packages\\",
-        "outputPath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\obj\\",
+        "outputPath": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj": {
+    "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj",
+        "projectUniqueName": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj",
         "projectName": "TextProcessing_Tests",
-        "projectPath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj",
+        "projectPath": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing_Tests\\TextProcessing_Tests.csproj",
         "packagesPath": "C:\\Users\\jenda\\.nuget\\packages\\",
-        "outputPath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing_Tests\\obj\\",
+        "outputPath": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing_Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\TextProcessing.csproj": {
-                "projectPath": "C:\\ADATA\\Schola\\Schola_TextProcessing\\TextProcessing\\TextProcessing.csproj"
+              "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\TextProcessing.csproj": {
+                "projectPath": "C:\\ADATA\\Schola\\Programming\\TextProcessing\\TextProcessing\\TextProcessing.csproj"
               }
             }
           }
