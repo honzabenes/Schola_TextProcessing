@@ -2,7 +2,7 @@
   "profiles": {
     "TableSummatorApp": {
       "commandName": "Project",
-      "commandLineArgs": "input.txt output.txt cena"
+      "commandLineArgs": "$(SolutionDir)data\\input.txt\r\n$(SolutionDir)data\\output.txt\r\ncena"
     }
   }
 }

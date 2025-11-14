@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextProcessing", "src\TextProcessing\TextProcessing.csproj", "{9BC4719F-A5EE-42B4-A5EF-ACD913CC2AE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextProcessing_Tests", "src\TextProcessing_Tests\TextProcessing_Tests.csproj", "{170B5F4A-0365-4E87-B5FB-DCE2FA6D5D5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextProcessing_IntegrationTests", "src\TextProcessing_Tests\TextProcessing_IntegrationTests.csproj", "{170B5F4A-0365-4E87-B5FB-DCE2FA6D5D5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenProcessingFramework", "src\TokenProcessingFramework\TokenProcessingFramework.csproj", "{266DF4A0-A2D0-4805-8C23-9CB52E7E96C6}"
 EndProject
@@ -28,6 +28,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextJustifierApp", "src\TextJustifierApp\TextJustifierApp.csproj", "{1A6627E1-906E-4368-AB53-C18C04410F67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphWordCounterApp", "src\ParagraphWordCounterApp\ParagraphWordCounterApp.csproj", "{8DFCE8BD-8AE0-48A6-A94E-2821D93977F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{903D2EBA-EB7B-49B3-8C19-79F4231EEA17}"
+	ProjectSection(SolutionItems) = preProject
+		data\input.txt = data\input.txt
+		data\output.txt = data\output.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

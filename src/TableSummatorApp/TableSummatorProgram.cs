@@ -24,11 +24,10 @@ namespace TableSummatorApp
                 IOState.OpenOutputFile(1);
 
                 var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
-                var baseReader = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
 
                 var tableSummator = new TableSummator(args[2]);
 
-                TokenProcessing.ProcessTokensUntilEndOfInput(baseReader, tableSummator);
+                TokenProcessing.ProcessTokensUntilEndOfInput(byCharsTokenReader, tableSummator);
 
                 tableSummator.WriteOut(IOState.Writer!);
 

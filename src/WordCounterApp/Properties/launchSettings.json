@@ -2,7 +2,7 @@
   "profiles": {
     "WordCounterApp": {
       "commandName": "Project",
-      "commandLineArgs": "input.txt"
+      "commandLineArgs": "$(SolutionDir)data\\input.txt"
     }
   }
 }

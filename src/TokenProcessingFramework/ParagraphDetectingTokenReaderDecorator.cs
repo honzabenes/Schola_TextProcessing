@@ -50,12 +50,6 @@
                         return new Token(TokenType.EoP);
                     }
 
-                    if (newLinesFound == 1)
-                    {
-                        _priorityToken = token;
-                        return new Token(TokenType.EoL);
-                    }
-
                     if (newLinesFound > 1)
                     {
                         _priorityToken = token;

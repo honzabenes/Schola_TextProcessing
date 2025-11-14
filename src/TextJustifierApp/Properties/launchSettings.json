@@ -2,7 +2,7 @@
   "profiles": {
     "TextJustifierApp": {
       "commandName": "Project",
-      "commandLineArgs": "LoremIpsum.txt output.txt 40"
+      "commandLineArgs": "$(SolutionDir)data\\input.txt\r\n$(SolutionDir)data\\output.txt\r\n40"
     }
   }
 }

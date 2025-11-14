@@ -89,6 +89,7 @@ namespace TableSummatorApp
             {
                 throw new InvalidTableFormatException();
             }
+
             _currentRow++;
             _currentColumn = 0;
         }
