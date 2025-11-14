@@ -10,7 +10,7 @@
         private Token? _priorityToken = null;
         private int _maxLineWidth { get; init; }
         private int _currentLineWidth { get; set; } = 0;
-        private const int MIN_SPACE_WIDTH = 1;
+        private const int MinSpaceWidth = 1;
 
         public EoLTokenJustifierTokenReaderDecorator(ITokenReader reader, int maxLineWidth)
         {
@@ -30,7 +30,7 @@
 
                 if (token.Type == TokenType.Word)
                 {
-                    _currentLineWidth = token.Word!.Length + MIN_SPACE_WIDTH;
+                    _currentLineWidth = token.Word!.Length + MinSpaceWidth;
                 }
 
                 return token;
@@ -65,7 +65,7 @@
                     return new Token(TokenType.EoL);
                 }
 
-                _currentLineWidth += MIN_SPACE_WIDTH;
+                _currentLineWidth += MinSpaceWidth;
 
                 return token;
             }
