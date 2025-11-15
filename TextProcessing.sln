@@ -35,6 +35,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{903D2EBA-E
 		data\output.txt = data\output.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{BBDAEAED-CFC3-4AA8-BE9B-4A197A15F909}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFrequencyCounterBenchmarks", "src\WordFrequencyCounterBenchmarks\WordFrequencyCounterBenchmarks.csproj", "{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{8DFCE8BD-8AE0-48A6-A94E-2821D93977F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFCE8BD-8AE0-48A6-A94E-2821D93977F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFCE8BD-8AE0-48A6-A94E-2821D93977F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +100,7 @@ Global
 		{3BDCEE91-306A-4A42-A546-14B21B7509B1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{1A6627E1-906E-4368-AB53-C18C04410F67} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8DFCE8BD-8AE0-48A6-A94E-2821D93977F9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DAB41C20-AACC-43AE-AFDB-E1666C43F9A6} = {BBDAEAED-CFC3-4AA8-BE9B-4A197A15F909}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B7CD0FA-CDFE-4F7D-A4A8-882D61C526B3}
