@@ -1,0 +1,35 @@
+﻿Výsledky
+========
+
+IncrementCountInDataStructure_KeyNotFound-report.md
+
+| Method                              | Mean        | Error     | StdDev    | Median      |
+|------------------------------------ |------------:|----------:|----------:|------------:|
+| IncrementWordCount_SortedList       | 3,771.23 ns | 64.135 ns | 59.992 ns | 3,768.51 ns |
+| IncrementWordCount_SortedDictionary | 4,468.75 ns | 75.892 ns | 67.277 ns | 4,439.38 ns |
+| IncrementWordCount_Dictionary       |    44.10 ns |  1.441 ns |  4.181 ns |    42.46 ns |
+
+
+IncrementCountInDataStructure_KeyFound-report.md
+
+| Method                              | Mean        | Error     | StdDev     |
+|------------------------------------ |------------:|----------:|-----------:|
+| IncrementWordCount_SortedList       | 1,755.00 ns | 47.050 ns | 133.472 ns |
+| IncrementWordCount_SortedDictionary | 1,788.07 ns | 42.842 ns | 120.133 ns |
+| IncrementWordCount_Dictionary       |    38.47 ns |  1.156 ns |   3.299 ns |
+
+
+BuildDictionaryAndSortAtTheEnd-report.md
+
+| Method          | Mean     | Error   | StdDev   |
+|---------------- |---------:|--------:|---------:|
+| Sort_Dictionary | 183.0 ns | 6.18 ns | 17.01 ns 
+
+
+ConsoleOutputBenchmark-report.md
+
+| Method                | Mean     | Error    | StdDev   | Median   |
+|---------------------- |---------:|---------:|---------:|---------:|
+| PrintSortedList       | 553.4 μs | 15.70 μs | 43.76 μs | 540.2 μs |
+| PrintSortedDictionary | 639.8 μs | 15.80 μs | 45.07 μs | 626.7 μs |
+| PrintDictionary       | 498.8 μs | 15.72 μs | 45.85 μs | 481.7 μs |

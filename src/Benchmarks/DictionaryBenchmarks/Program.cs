@@ -17,7 +17,7 @@ namespace DictionaryBenchmarks
     {
         public static void Main(string[] args)
         {
-            BenchmarkRunner.Run<IncrementValueInDictionary_KeyNotFound>();
+            //BenchmarkRunner.Run<IncrementValueInDictionary_KeyNotFound>();
             BenchmarkRunner.Run<IncrementValueInDictionary_KeyFound>();
         }
     }
@@ -26,8 +26,8 @@ namespace DictionaryBenchmarks
     public class IncrementValueInDictionary_KeyNotFound
     {
         private Dictionary<string, int> _dictionary = new Dictionary<string, int>();
+
         private string[] _keys;
-        private int _keyIndex;
 
         private const int _operationsPerIteration = 100_000;
 
@@ -46,7 +46,6 @@ namespace DictionaryBenchmarks
         public void IterationSetup()
         {
             _dictionary.Clear();
-            _keyIndex = 0;
         }
 
 
@@ -55,7 +54,7 @@ namespace DictionaryBenchmarks
         {
             for (int i = 0; i < _operationsPerIteration; i++)
             {
-                string key = _keys[_keyIndex++];
+                string key = _keys[i];
 
                 try
                 {
@@ -74,7 +73,7 @@ namespace DictionaryBenchmarks
         {
             for (int i = 0; i < _operationsPerIteration; i++)
             {
-                string key = _keys[_keyIndex++];
+                string key = _keys[i];
 
                 if (_dictionary.ContainsKey(key))
                 {
@@ -93,9 +92,9 @@ namespace DictionaryBenchmarks
         {
             for (int i = 0; i < _operationsPerIteration; i++)
             {
-                string key = _keys[_keyIndex++];
+                string key = _keys[i];
 
-                _ = _dictionary.TryGetValue(key, out int value);    // If not found, value == default(int) == 0
+                _ = _dictionary.TryGetValue(key, out int value);
                 value++;
                 _dictionary[key] = value;
             }
@@ -106,49 +105,75 @@ namespace DictionaryBenchmarks
     public class IncrementValueInDictionary_KeyFound
     {
         private Dictionary<string, int> _dictionary= new Dictionary<string, int>();
-        private string key = "test";
+
+        private string[] _keys;
+
+        private const int _operationsPerIteration = 100_000;
+        private const int _keysCountInDictionary = 10_000;
 
         [GlobalSetup]
         public void GlobalSetup()
         {
-            _dictionary.Add(key, 1);
+            _keys = new string[_keysCountInDictionary];
+
+            for (int i = 0; i < _keys.Length; i++)
+            {
+                _keys[i] = "key" + i;
+
+                _dictionary.Add(_keys[i], 1);
+            }
         }
 
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = _operationsPerIteration)]
         public void IncrementWordCount_V1()
         {
-            try
+            for (int i = 0; i < _operationsPerIteration; i++)
             {
-                _dictionary[key]++;
-            }
-            catch (KeyNotFoundException)
-            {
-                _dictionary[key] = 1;
+                string key = _keys[i % _keysCountInDictionary];
+
+                try
+                {
+                    _dictionary[key]++;
+                }
+                catch (KeyNotFoundException)
+                {
+                    _dictionary[key] = 1;
+                }
             }
         }
 
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = _operationsPerIteration)]
         public void IncrementWordCount_V2()
         {
-            if (_dictionary.ContainsKey(key))
+            for (int i = 0; i < _operationsPerIteration; i++)
             {
-                _dictionary[key]++;
-            }
-            else
-            {
-                _dictionary[key] = 1;
+                string key = _keys[i % _keysCountInDictionary];
+
+                if (_dictionary.ContainsKey(key))
+                {
+                    _dictionary[key]++;
+                }
+                else
+                {
+                    _dictionary[key] = 1;
+                }
             }
         }
 
 
-        [Benchmark]
+        [Benchmark(OperationsPerInvoke = _operationsPerIteration)]
         public void IncrementWordCount_V3()
         {
-            _ = _dictionary.TryGetValue(key, out int value);
-            value++;
-            _dictionary[key] = value;
+            for (int i = 0; i < _operationsPerIteration; i++)
+            {
+                string key = _keys[i % _keysCountInDictionary];
+
+                _ = _dictionary.TryGetValue(key, out int value);
+                value++;
+                _dictionary[key] = value;
+            }
         }
     }
 }

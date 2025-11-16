@@ -3,20 +3,20 @@ Výsledky
 
 IncrementValueInDictionary_KeyNotFound-report.md
 
-| Method                | Mean        | Error      | StdDev      | Median      |
-|---------------------- |------------:|-----------:|------------:|------------:|
-| IncrementWordCount_V1 | 4,587.47 ns | 404.042 ns | 1,165.75 ns | 4,197.12 ns |
-| IncrementWordCount_V2 |    63.95 ns |   5.524 ns |    15.94 ns |    58.30 ns |
-| IncrementWordCount_V3 |    78.36 ns |   8.888 ns |    25.21 ns |    74.21 ns |
+| Method                | Mean        | Error      | StdDev     |
+|---------------------- |------------:|-----------:|-----------:|
+| IncrementWordCount_V1 | 3,873.22 ns | 174.455 ns | 489.189 ns |
+| IncrementWordCount_V2 |    49.41 ns |   3.346 ns |   9.437 ns |
+| IncrementWordCount_V3 |    52.33 ns |   3.007 ns |   8.579 ns |
 
 
 IncrementValueInDictionary_KeyFound-report.md
 
-| Method                | Mean     | Error    | StdDev   | Median   |
-|---------------------- |---------:|---------:|---------:|---------:|
-| IncrementWordCount_V1 | 32.02 ns | 2.253 ns | 6.536 ns | 29.43 ns |
-| IncrementWordCount_V2 | 46.89 ns | 2.696 ns | 7.906 ns | 44.64 ns |
-| IncrementWordCount_V3 | 32.67 ns | 1.893 ns | 5.431 ns | 31.38 ns |
+| Method                | Mean     | Error    | StdDev   |
+|---------------------- |---------:|---------:|---------:|
+| IncrementWordCount_V1 | 36.49 ns | 0.164 ns | 0.145 ns |
+| IncrementWordCount_V2 | 46.66 ns | 0.490 ns | 0.434 ns |
+| IncrementWordCount_V3 | 33.88 ns | 0.526 ns | 0.466 ns |
 
 
 Interpretace výsledkù
@@ -25,8 +25,7 @@ Interpretace výsledkù
 1) WordNotFound
 
 	Výsledky benchmarku tohoto pøípadu mì nepøekvapily. Pouze potvrdily, že výjimky jsou velmi pomalé.
-	Oproti ostatním dvìma variantám zhruba 75x pomalejší. Co se týèe V2 a V3 vyšly výsledky V2 o pár 
-	procent lepší, ale není mezi nimi pøíliš velký rozdíl.
+	Oproti ostatním dvìma variantám zhruba 75x pomalejší. Co se týèe V2 a V3, jsou srovnatelné.
 
 2) WordFound
 	
@@ -39,10 +38,6 @@ Shrnutí
 =======
 
 Z výsledkù se mi potvrdilo, že bych rozhodnì nemìl používat try/catch blok. Zbývá se rozhodnout mezi V2 pomocí
-Contains a V3 pomocí TryGetValue. V pøípadì, že bychom procesovali text, který obsahuje pøevážnì unikátní slova,
-zdálo by se lepší použít metodu V2. Pøepokládal bych ale, že budeme zpracovávat text bìžného jazyka a v nìm
-pravdìpodobnìji bude více opakujících se slov, než slov unikátních.
-
-Zde jsem si svou úvahu potvrdil: https://chatgpt.com/share/6918e84d-74e8-800d-848d-d0c111903d02
-
-Zvolím proto pro implementaci zaznamenávání frekvence slov pomocí slovníku variantu V3 s TryGetValue.
+Contains a V3 pomocí TryGetValue. V3 je s V2 srovnatelné v pøípadì pøidávání nového klíèe a v pøípadì
+pøièítání k výskytùm existujícího klíèe je znatelnì rychlejší. Zvolím proto pro implementaci zaznamenávání
+frekvence slov pomocí slovníku variantu V3 s TryGetValue.
