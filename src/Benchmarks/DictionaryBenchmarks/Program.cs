@@ -4,8 +4,8 @@ using BenchmarkDotNet.Running;
 // Při psaní benchmarků pro případ, že se slovo, u kterého chceme zvyšovat počet výskytů, ještě ve slovníku nenachází,
 // jsem narazil na problém, jak zaručit, aby se v každé operaci při běhu benchmarku přidávané slovo opravdu
 // ve slovníku nenacházelo. Ńejprve jsem sám problém vyřešil tím, že jsem v každé ze tří funkcí nejprve slovník
-// vyprázdnil. To mi ale přijde jako špatné řešení, jelikož do implementace funkcí bychom asi ideálně neměli vůbec
-// sahat. Pak jsem našel v dokumentaci BenchmarkDotNet, že lze pomocí Atributu IterationSetup vyprázdnit slovník
+// vyprázdnil. To mi ale přijde jako špatné řešení, pak by se do času jednoho běhu přičítalo i vypradňování slovníku.
+// Pak jsem našel v dokumentaci BenchmarkDotNet, že lze pomocí Atributu IterationSetup vyprázdnit slovník
 // před každou iterací. Jenže to, jak jsem zjistil donutí benchmark, aby v každé iteraci prováděl jen jednu operaci.
 // Z toho, si myslím, by nevycházely dobré výsledky vzhledem k malému počtu spouštění funkce. Poté jsem se AI zeptal,
 // jak by to jinak šlo vyřešit a ta mi nabídla způsob, podle kterého jsem nakonec benchmarky implementoval.

@@ -7,7 +7,7 @@ namespace WordFrequencyCounterApp
     /// </summary>
     public class WordFrequencyCounter : ITokenProcessor
     {
-        public SortedDictionary<string, int> Words { get; private set; } = new SortedDictionary<string, int>();
+        public Dictionary<string, int> Words { get; private set; } = new Dictionary<string, int>();
 
         public void ProcessToken(Token token)
         {
@@ -22,20 +22,16 @@ namespace WordFrequencyCounterApp
         {
             string word = token.Word!;
 
-            if (Words.ContainsKey(word))
-            {
-                Words[word]++;
-            }
-            else
-            {
-                Words.Add(word, 1);
-            }
+            _ = Words.TryGetValue(word, out int value);
+            Words[word] = value + 1;
         }
 
 
         public void WriteOut(TextWriter writer)
         {
-            foreach (KeyValuePair<string, int> pair in Words)
+            var sortedWords = new SortedDictionary<string, int>(Words);
+
+            foreach (KeyValuePair<string, int> pair in sortedWords)
             {
                 string line = $"{pair.Key}: {pair.Value}";
                 writer.WriteLine(line);

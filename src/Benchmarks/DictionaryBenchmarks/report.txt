@@ -29,7 +29,7 @@ Interpretace výsledkù
 
 2) WordFound
 	
-	Tyto výsledky mì zprvu pøekvapily. V2 vyšla o cca 50% pomalejší než ostatní dvì varianty. Po zamyšlení
+	Tyto výsledky mì zprvu pøekvapily. V2 vyšla o cca 40% pomalejší než ostatní dvì varianty. Po zamyšlení
 	mi to ale dává smysl. Ve V2 totiž vždy provádíme volání Contains na slovník a to i v pøípadì, že se slovo
 	ve slovníku nachází.
 
