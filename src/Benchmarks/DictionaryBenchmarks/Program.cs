@@ -13,7 +13,7 @@ using BenchmarkDotNet.Running;
 
 namespace DictionaryBenchmarks
 {
-    internal class DictionaryBenchmarks
+    internal class Program
     {
         public static void Main(string[] args)
         {
