@@ -1,4 +1,4 @@
-Vısledky
+ï»¿VÃ½sledky
 ========
 
 IncrementValueInDictionary_KeyNotFound-report.md
@@ -19,25 +19,25 @@ IncrementValueInDictionary_KeyFound-report.md
 | IncrementWordCount_V3 | 33.88 ns | 0.526 ns | 0.466 ns |
 
 
-Interpretace vısledkù
+Interpretace vÃ½sledkÅ¯
 =====================
 
 1) WordNotFound
 
-	Vısledky benchmarku tohoto pøípadu mì nepøekvapily. Pouze potvrdily, e vıjimky jsou velmi pomalé.
-	Oproti ostatním dvìma variantám zhruba 75x pomalejší. Co se tıèe V2 a V3, jsou srovnatelné.
+	VÃ½sledky benchmarku tohoto pÅ™Ã­padu mÄ› nepÅ™ekvapily. Pouze potvrdily, Å¾e vÃ½jimky jsou velmi pomalÃ©.
+	Oproti ostatnÃ­m dvÄ›ma variantÃ¡m zhruba 75x pomalejÅ¡Ã­. Co se tÃ½Äe V2 a V3, jsou srovnatelnÃ©.
 
 2) WordFound
 	
-	Tyto vısledky mì zprvu pøekvapily. V2 vyšla o cca 40% pomalejší ne ostatní dvì varianty. Po zamyšlení
-	mi to ale dává smysl. Ve V2 toti vdy provádíme volání Contains na slovník a to i v pøípadì, e se slovo
-	ve slovníku nachází.
+	Tyto vÃ½sledky mÄ› zprvu pÅ™ekvapily. V2 vyÅ¡la o cca 40% pomalejÅ¡Ã­ neÅ¾ ostatnÃ­ dvÄ› varianty. Po zamyÅ¡lenÃ­
+	mi to ale dÃ¡vÃ¡ smysl. Ve V2 totiÅ¾ vÅ¾dy provÃ¡dÃ­me volÃ¡nÃ­ Contains na slovnÃ­k a to i v pÅ™Ã­padÄ›, Å¾e se slovo
+	ve slovnÃ­ku nachÃ¡zÃ­.
 
 
-Shrnutí
+ShrnutÃ­
 =======
 
-Z vısledkù se mi potvrdilo, e bych rozhodnì nemìl pouívat try/catch blok. Zbıvá se rozhodnout mezi V2 pomocí
-Contains a V3 pomocí TryGetValue. V3 je s V2 srovnatelné v pøípadì pøidávání nového klíèe a v pøípadì
-pøièítání k vıskytùm existujícího klíèe je znatelnì rychlejší. Zvolím proto pro implementaci zaznamenávání
-frekvence slov pomocí slovníku variantu V3 s TryGetValue.
+Z vÃ½sledkÅ¯ se mi potvrdilo, Å¾e bych rozhodnÄ› nemÄ›l pouÅ¾Ã­vat try/catch blok. ZbÃ½vÃ¡ se rozhodnout mezi V2 pomocÃ­
+Contains a V3 pomocÃ­ TryGetValue. V3 je s V2 srovnatelnÃ© v pÅ™Ã­padÄ› pÅ™idÃ¡vÃ¡nÃ­ novÃ©ho klÃ­Äe a v pÅ™Ã­padÄ›
+pÅ™iÄÃ­tÃ¡nÃ­ k vÃ½skytÅ¯m existujÃ­cÃ­ho klÃ­Äe je znatelnÄ› rychlejÅ¡Ã­. ZvolÃ­m proto pro implementaci zaznamenÃ¡vÃ¡nÃ­
+frekvence slov pomocÃ­ slovnÃ­ku variantu V3 s TryGetValue.

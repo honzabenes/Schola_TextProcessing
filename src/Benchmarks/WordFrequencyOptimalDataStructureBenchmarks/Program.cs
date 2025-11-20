@@ -3,7 +3,7 @@ using BenchmarkDotNet.Running;
 
 namespace WordFrequencyOptimalDataStructureBenchmarks
 {
-    internal class Program
+    internal class OptimalDataStructureBenchmarks
     {
         static void Main(string[] args)
         {
