@@ -30,6 +30,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{903D2EBA-EB7B-49B3-8C19-79F4231EEA17}"
 	ProjectSection(SolutionItems) = preProject
 		data\input.txt = data\input.txt
+		data\in_01.txt = data\in_01.txt
+		data\in_03.txt = data\in_03.txt
 		data\output.txt = data\output.txt
 	EndProjectSection
 EndProject
@@ -46,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{7199C330-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{62A77961-3510-4769-98C4-566528859D14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\Tests\UnitTests\UnitTests.csproj", "{26D66C7E-566E-4CD0-9F89-5B728C0E0CE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultifileTextJustification_UnitTests", "src\Tests\UnitTests\MultifileTextJustification_UnitTests.csproj", "{26D66C7E-566E-4CD0-9F89-5B728C0E0CE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultifileTextJustifierApp", "src\Apps\MultifileTextJustifierApp\MultifileTextJustifierApp.csproj", "{2D89E5F5-F220-464C-9DD4-373BD81EBA1C}"
 EndProject

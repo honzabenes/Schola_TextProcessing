@@ -18,7 +18,7 @@
             {
                 ErrorOutput.WriteLine("Argument Error");
             }
-            catch (FileAccesErrorApplicationException)
+            catch (FileAccessErrorApplicationException)
             {
                 ErrorOutput.WriteLine("File Error");
             }

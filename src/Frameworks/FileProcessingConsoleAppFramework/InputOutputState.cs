@@ -18,6 +18,34 @@
         }
 
 
+        public bool IsHighlightOptionOn()
+        {
+            return _args[0] == "--higlight-spaces";
+        }
+
+
+        public void EnsureMinimumArgumentCount(int minimumCount)
+        {
+            if (_args.Length < minimumCount)
+            {
+                throw new InvalidArgumentApplicationException();
+            }
+        }
+
+
+        public List<string> GetFilepathsFromArguments(int startIndex, int endIndex)
+        {
+            var filepaths = new List<string>();
+
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                filepaths.Add(_args[i]);
+            }
+
+            return filepaths;
+        }
+
+
         public void OpenInputFile(int argument)
         {
             try
@@ -26,11 +54,11 @@
             }
             catch (IOException)
             {
-                throw new FileAccesErrorApplicationException();
+                throw new FileAccessErrorApplicationException();
             }
             catch (UnauthorizedAccessException)
             {
-                throw new FileAccesErrorApplicationException();
+                throw new FileAccessErrorApplicationException();
             }
             catch (ArgumentException)
             {
@@ -47,11 +75,11 @@
             }
             catch (IOException)
             {
-                throw new FileAccesErrorApplicationException();
+                throw new FileAccessErrorApplicationException();
             }
             catch (UnauthorizedAccessException)
             {
-                throw new FileAccesErrorApplicationException();
+                throw new FileAccessErrorApplicationException();
             }
             catch (ArgumentException)
             {

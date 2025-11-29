@@ -1,36 +1,52 @@
-﻿namespace TokenProcessingFramework
+﻿using FileProcessingConsoleAppFramework;
+
+namespace TokenProcessingFramework
 {
     public class MultifileTokenReader : ITokenReader, IDisposable
     {
         private ITokenReader? _currentReader;
-        private ITokenReaderFactory _factory;
+        private ITokenReaderFactory _tokenReaderFactory;
 
-        public MultifileTokenReader(ITokenReaderFactory factory)
+        public MultifileTokenReader(ITokenReaderFactory tokenReaderFactory)
         {
-            _factory = factory;
+            _tokenReaderFactory = tokenReaderFactory;
         }
 
 
         public Token ReadToken()
         {
-            if (_currentReader is null)
+            while (true)
             {
-                _currentReader = _factory.GetNextReader();
-                if ( _currentReader is null )
+                if (_currentReader is null)
                 {
-                    return new Token(TokenType.EoI);
+                    try
+                    {
+                        _currentReader = _tokenReaderFactory.GetNextReader();
+                    }
+                    catch (FileAccessErrorApplicationException)
+                    {
+                        continue;
+                    }
+                    catch (InvalidArgumentApplicationException)
+                    {
+                        continue;
+                    }
+
+                    if (_currentReader is null)
+                    {
+                        return new Token(TokenType.EoI);
+                    }
                 }
-            }
 
-            Token token = _currentReader.ReadToken();
+                Token token = _currentReader.ReadToken();
 
-            if (token.Type == TokenType.EoI)
-            {
+                if (token.Type != TokenType.EoI)
+                {
+                    return token;
+                }
+
                 Dispose();
-                ReadToken();
             }
-
-            return token;
         }
 
 
