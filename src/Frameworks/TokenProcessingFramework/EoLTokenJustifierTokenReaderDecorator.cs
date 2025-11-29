@@ -36,7 +36,7 @@
                 return token;
             }
 
-            // Skip End of Line tokens
+            // Skip EoL tokens
             while ((token = _reader.ReadToken()) is { Type: TokenType.EoL }) 
             {
                 continue;
@@ -58,7 +58,7 @@
                         return token;
                     }
 
-                    // Else we need to sent End of Line first
+                    // Else we need to sent EoL first
                     _priorityToken = token;
                     _currentLineWidth = 0;
 
