@@ -15,7 +15,9 @@ namespace TokenProcessingFramework
 
         public Token ReadToken()
         {
-            while (true)
+            Token? tokenToReturn = null;
+
+            while (tokenToReturn is null)
             {
                 if (_currentReader is null)
                 {
@@ -38,15 +40,19 @@ namespace TokenProcessingFramework
                     }
                 }
 
-                Token token = _currentReader.ReadToken();
+                Token tempToken = _currentReader!.ReadToken();
 
-                if (token.Type != TokenType.EoI)
+                if (tempToken.Type == TokenType.EoI)
                 {
-                    return token;
+                    Dispose();
                 }
-
-                Dispose();
+                else
+                {
+                    tokenToReturn = tempToken;
+                }
             }
+
+            return (Token)tokenToReturn;
         }
 
 
