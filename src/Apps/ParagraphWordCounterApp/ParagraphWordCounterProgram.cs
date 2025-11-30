@@ -20,20 +20,25 @@ namespace ParagraphWordCounterApp
         {
             var IOState = new InputOutputState(args);
 
-            IOState.CheckArgumentsCount(1);
-            IOState.OpenInputFile(0);
+            try
+            {
+                IOState.CheckArgumentsCount(1);
+                IOState.OpenInputFile(0);
 
-            var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
-            var baseReader = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
-            var debugReader = new DebugPrintingTokenReaderWrapper(baseReader);
+                var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
+                var baseReader = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
+                var debugReader = new DebugPrintingTokenReaderWrapper(baseReader);
 
-            var paragraphWordCounter = new ParagraphWordCounter();
+                var paragraphWordCounter = new ParagraphWordCounter();
 
-            TokenProcessing.ProcessTokensUntilEndOfInput(debugReader, paragraphWordCounter);
+                TokenProcessing.ProcessTokensUntilEndOfInput(debugReader, paragraphWordCounter);
 
-            paragraphWordCounter.WriteOut(Console.Out);
-
-            IOState.Dispose();
+                paragraphWordCounter.WriteOut(Console.Out);
+            }
+            finally
+            {
+                IOState.Dispose();
+            }
         }
     }
 }

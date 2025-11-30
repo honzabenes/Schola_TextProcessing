@@ -19,21 +19,27 @@ namespace TextJustifierApp
             {
                 var IOState = new InputOutputState(args);
 
-                IOState.CheckArgumentsCount(3);
-                IOState.OpenInputFile(0);
-                IOState.OpenOutputFile(1);
-                int maxLineWidth = IOState.ParsePositiveIntFromArgument(2);
+                try
+                {
+                    IOState.CheckArgumentsCount(3);
+                    IOState.OpenInputFile(0);
+                    IOState.OpenOutputFile(1);
+                    int maxLineWidth = IOState.ParsePositiveIntFromArgument(2);
 
-                var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
-                var paragraphDecorator = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
-                var EoLJustifierDecorator = new EoLTokenJustifierTokenReaderDecorator(paragraphDecorator, maxLineWidth);
-                var baseReader = new SpaceAddingTokenReaderDecorator(EoLJustifierDecorator, maxLineWidth);
+                    var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
+                    var paragraphDecorator = new ParagraphDetectingTokenReaderDecorator(byCharsTokenReader);
+                    var EoLJustifierDecorator = new EoLTokenJustifierTokenReaderDecorator(paragraphDecorator, maxLineWidth);
+                    var baseReader = new SpaceAddingTokenReaderDecorator(EoLJustifierDecorator, maxLineWidth);
 
-                var tokenPrinter = new TokenPrinter(baseReader, IOState.Writer!);
+                    var tokenPrinter = new TokenPrinter(baseReader, IOState.Writer!);
 
-                tokenPrinter.PrintAllTokens();
+                    tokenPrinter.PrintAllTokens();
 
-                IOState.Dispose();
+                }
+                finally
+                {
+                    IOState.Dispose();
+                }
             }
         }
     }

@@ -19,18 +19,24 @@ namespace WordFrequencyCounterApp
         {
             var IOState = new InputOutputState(args);
 
-            IOState.CheckArgumentsCount(1);
-            IOState.OpenInputFile(0);
+            try
+            {
+                IOState.CheckArgumentsCount(1);
+                IOState.OpenInputFile(0);
 
-            var tokenReader = new ByCharsTokenReader(IOState.Reader!);
+                var tokenReader = new ByCharsTokenReader(IOState.Reader!);
 
-            var wordFrequencyCounter = new WordFrequencyCounter();
+                var wordFrequencyCounter = new WordFrequencyCounter();
 
-            TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordFrequencyCounter);
+                TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordFrequencyCounter);
 
-            wordFrequencyCounter.WriteOut(Console.Out);
+                wordFrequencyCounter.WriteOut(Console.Out);
 
-            IOState.Dispose();
+            }
+            finally
+            {
+                IOState.Dispose();
+            }
         }
     }
 }

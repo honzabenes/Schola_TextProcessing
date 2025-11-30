@@ -19,19 +19,24 @@ namespace TableSummatorApp
             {
                 var IOState = new InputOutputState(args);
 
-                IOState.CheckArgumentsCount(3);
-                IOState.OpenInputFile(0);
-                IOState.OpenOutputFile(1);
+                try
+                {
+                    IOState.CheckArgumentsCount(3);
+                    IOState.OpenInputFile(0);
+                    IOState.OpenOutputFile(1);
 
-                var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
+                    var byCharsTokenReader = new ByCharsTokenReader(IOState.Reader!);
 
-                var tableSummator = new TableSummator(args[2]);
+                    var tableSummator = new TableSummator(args[2]);
 
-                TokenProcessing.ProcessTokensUntilEndOfInput(byCharsTokenReader, tableSummator);
+                    TokenProcessing.ProcessTokensUntilEndOfInput(byCharsTokenReader, tableSummator);
 
-                tableSummator.WriteOut(IOState.Writer!);
-
-                IOState.Dispose();
+                    tableSummator.WriteOut(IOState.Writer!);
+                }
+                finally
+                {
+                    IOState.Dispose();
+                }
             }
         }
     }

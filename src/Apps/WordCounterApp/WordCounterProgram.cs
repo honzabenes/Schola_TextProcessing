@@ -20,18 +20,23 @@ namespace WordCounterApp
         {
             var IOState = new InputOutputState(args);
 
-            IOState.CheckArgumentsCount(1);
-            IOState.OpenInputFile(0);
+            try
+            {
+                IOState.CheckArgumentsCount(1);
+                IOState.OpenInputFile(0);
 
-            var tokenReader = new ByCharsTokenReader(IOState.Reader!);
+                var tokenReader = new ByCharsTokenReader(IOState.Reader!);
 
-            var wordCounter = new WordCounter();
+                var wordCounter = new WordCounter();
 
-            TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordCounter);
+                TokenProcessing.ProcessTokensUntilEndOfInput(tokenReader, wordCounter);
 
-            wordCounter.WriteOut(Console.Out);
-
-            IOState.Dispose();
+                wordCounter.WriteOut(Console.Out);
+            }
+            finally
+            {
+                IOState.Dispose();
+            }
         }
     }
 }
