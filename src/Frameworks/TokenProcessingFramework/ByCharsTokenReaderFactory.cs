@@ -2,6 +2,10 @@
 
 namespace TokenProcessingFramework
 {
+    /// <summary>
+    /// A factory implementation that produces <see cref="ITokenReader"/> instances 
+    /// for sequential character-based processing of a given list of files.
+    /// </summary>
     public class ByCharsTokenReaderFactory : ITokenReaderFactory
     {
         private Queue<string> _filepaths;

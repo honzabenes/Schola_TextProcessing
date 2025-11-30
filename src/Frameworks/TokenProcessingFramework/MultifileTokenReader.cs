@@ -2,6 +2,10 @@
 
 namespace TokenProcessingFramework
 {
+    /// <summary>
+    /// Represents a token reader that processes multiple input sources sequentially as 
+    /// a single continuous stream.
+    /// </summary>
     public class MultifileTokenReader : ITokenReader, IDisposable
     {
         private ITokenReader? _currentReader;
