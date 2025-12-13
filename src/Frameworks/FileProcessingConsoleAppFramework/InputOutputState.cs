@@ -6,6 +6,7 @@
     public class InputOutputState(string[] _args) : IDisposable
     {
         public TextReader? Reader {  get; set; }
+        public FileStream? InputByteStream { get; set; }
         public TextWriter? Writer { get; set; }
 
 
@@ -43,6 +44,27 @@
             }
 
             return filepaths;
+        }
+
+
+        public void OpenInputByteStream(int argument)
+        {
+            try
+            {
+                InputByteStream = File.OpenRead(_args[argument]);
+            }
+            catch (IOException)
+            {
+                throw new FileAccessErrorApplicationException();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new FileAccessErrorApplicationException();
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidArgumentApplicationException();
+            }
         }
 
 

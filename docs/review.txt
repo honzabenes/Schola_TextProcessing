@@ -1,52 +1,36 @@
-=== CVIKA 4 ===
 
-nezotavitelne chyby?
+=== CVIKA 10 ===											lineWidth -----------------------------------------
+																|											  |
+																v											  v
+TextReader --> (chars) --> ITokenReader --> (tokens) --> [ ProcessToken(token) ] --> List<string>		-->	BlockJustify --> (string) --> TextWriter
+	/					\															 + Jak vytisknout?		LeftJustify	-|					  \
+StreamReader		ParagraphDetectingDecorator																							  StreamWriter
 
-ApplicationException trida v c#,
-E1, E2, E3 : AE, pak nemusim mit tolik try catch bloku, rename CustomExceptions
-na ApplicationExceptions, TableSummatorApplicationException
 
-Jak osetrovat zotavitelne chyby?
+ProcessAllTokens(tokenReader, tokenProcessor)
 
-enum ErrorState 
+
+TextJustifyProcessor : ITokenProcessor
 {
-	NoErr,
-	E1,
-	E2,
-	E3
+	ProcessTokens()
 }
 
-struct 
+
+MULTIFILE JUSTIFYING
+--------------------
+
+1) 
+
+HiglightingStringWriterDecorator : ISimpleStringWriter
+
+ISimpleStringWriter : IDisposable 
 {
-	ErrorState,
-	int lineNumber,
-	string text
-	...
+	write, writeline ...
 }
 
-xxx
-
-abstract class ErrorState
-{
-	int line
-}
-
-E1, E2, E2{string text}, NoError/null (lepsi) : ErrorState
++ Adapter SimpleStringWriterToTextWriterAdapter(TextWriter writer) : ISimpleStringWriter
 
 
-Spousteni ruznych aplikaci?
+2) 
 
-Execute(IProgramCore prg)
-{
-	try 
-	{
-		prg.f()
-	}
-	catch (AE e)
-	{
-		
-	}
-}
-
-=== CVIKA 9 ===
-
+Muzu na vystupu z factory vratit EmptyTokenReader, ktery obsahuje jen EoI
