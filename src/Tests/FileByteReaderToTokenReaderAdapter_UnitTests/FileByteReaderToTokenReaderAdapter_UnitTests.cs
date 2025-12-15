@@ -58,7 +58,7 @@ namespace HuffmanTree_UnitTests
         {
             // Arrange
             IByteReader fakeByteReader = new FakeByteReader(0);
-            var adapter = new FileByteReaderToTokenReaderAdapter(fakeByteReader);
+            var adapter = new ByteReaderToTokenReaderAdapter(fakeByteReader);
 
             // Act
             var readTokens = ReadAllTokens(adapter);
@@ -78,7 +78,7 @@ namespace HuffmanTree_UnitTests
         {
             // Arrange
             IByteReader fakeByteReader = new FakeByteReader([101]);
-            var adapter = new FileByteReaderToTokenReaderAdapter(fakeByteReader);
+            var adapter = new ByteReaderToTokenReaderAdapter(fakeByteReader);
 
             // Act
             var readTokens = ReadAllTokens(adapter);
@@ -98,7 +98,7 @@ namespace HuffmanTree_UnitTests
         {
             // Arrange
             IByteReader fakeByteReader = new FakeByteReader([101, 26, 51]);
-            var adapter = new FileByteReaderToTokenReaderAdapter(fakeByteReader);
+            var adapter = new ByteReaderToTokenReaderAdapter(fakeByteReader);
 
             // Act
             var readTokens = ReadAllTokens(adapter);

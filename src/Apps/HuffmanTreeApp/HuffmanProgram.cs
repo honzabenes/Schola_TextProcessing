@@ -27,7 +27,7 @@ namespace Huffman
                     IOState.OpenInputByteStream(0);
 
                     var fileByteReader = new FileByteReader(IOState.InputByteStream!);
-                    var byteReaderToTokenReaderAdapter = new FileByteReaderToTokenReaderAdapter(fileByteReader);
+                    var byteReaderToTokenReaderAdapter = new ByteReaderToTokenReaderAdapter(fileByteReader);
 
                     var wordFrequencyCounter = new WordFrequencyCounter();
 

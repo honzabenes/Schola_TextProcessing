@@ -2,20 +2,20 @@
 
 namespace ByteProcessingFramework
 {
-    public class FileByteReaderToTokenReaderAdapter : ITokenReader
+    public class ByteReaderToTokenReaderAdapter : ITokenReader
     {
-        private IByteReader _fileByteReader;
+        private IByteReader _byteReader;
 
-        public FileByteReaderToTokenReaderAdapter(IByteReader fileByteReader)
+        public ByteReaderToTokenReaderAdapter(IByteReader byteReader)
         {
-            _fileByteReader = fileByteReader;
+            _byteReader = byteReader;
         }
 
         public Token ReadToken()
         {
             byte? readByte;
 
-            readByte = _fileByteReader.ReadByte();
+            readByte = _byteReader.ReadByte();
 
             if (readByte == null)
             {
