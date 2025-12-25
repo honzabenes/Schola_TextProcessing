@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Frameworks\ExcelFramework\ExcelFramework.csproj" />
+    <ProjectReference Include="..\..\Frameworks\TokenProcessingFramework\TokenProcessingFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>

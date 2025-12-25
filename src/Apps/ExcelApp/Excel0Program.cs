@@ -14,7 +14,6 @@ namespace ExcelApp
         }
     }
 
-
     public class Excel0ProgramCore : IProgramCore
     {
         public void Run(string[] args)

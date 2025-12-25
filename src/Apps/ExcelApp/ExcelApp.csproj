@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Frameworks\ExcelFramework\ExcelFramework.csproj" />
     <ProjectReference Include="..\..\Frameworks\ExcelTableFramework\ExcelFramework.csproj" />
     <ProjectReference Include="..\..\Frameworks\FileProcessingConsoleAppFramework\FileProcessingConsoleAppFramework.csproj" />
     <ProjectReference Include="..\..\Frameworks\TokenProcessingFramework\TokenProcessingFramework.csproj" />
