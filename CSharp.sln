@@ -29,20 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphWordCounterApp", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{903D2EBA-EB7B-49B3-8C19-79F4231EEA17}"
 	ProjectSection(SolutionItems) = preProject
-		data\binary.in = data\binary.in
-		data\binary.out = data\binary.out
 		data\input.txt = data\input.txt
-		data\in_01.txt = data\in_01.txt
-		data\in_03.txt = data\in_03.txt
 		data\output.txt = data\output.txt
-		data\simple.in = data\simple.in
-		data\simple.out = data\simple.out
-		data\simple2.in = data\simple2.in
-		data\simple2.out = data\simple2.out
-		data\simple3.in = data\simple3.in
-		data\simple3.out = data\simple3.out
-		data\simple4.in = data\simple4.in
-		data\simple4.out = data\simple4.out
+		data\sample.eval = data\sample.eval
+		data\sample.sheet = data\sample.sheet
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{BBDAEAED-CFC3-4AA8-BE9B-4A197A15F909}"
@@ -66,9 +56,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuffmanTreeFramework", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuffmanTreeApp", "src\Apps\HuffmanTreeApp\HuffmanTreeApp.csproj", "{7ACAA741-4819-4B5D-A87D-0946EEE1F432}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuffmanTree_UnitTests", "src\Tests\FileByteReaderToTokenReaderAdapter_UnitTests\HuffmanTree_UnitTests.csproj", "{74C84F6D-57CA-491C-9B37-43D7DEBF1D33}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultifileTextJustification_UnitTests", "src\Tests\MultifileTexJustification_UnitTests\MultifileTextJustification_UnitTests.csproj", "{1E0DE984-239D-5B2B-F469-EC6E22A67233}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binaries", "Binaries", "{99DC6217-47A1-4F12-A242-90EF87A5DDC4}"
+	ProjectSection(SolutionItems) = preProject
+		data\binary.in = data\binary.in
+		data\binary.out = data\binary.out
+		data\in_01.txt = data\in_01.txt
+		data\in_03.txt = data\in_03.txt
+		data\simple.in = data\simple.in
+		data\simple.out = data\simple.out
+		data\simple2.in = data\simple2.in
+		data\simple2.out = data\simple2.out
+		data\simple3.in = data\simple3.in
+		data\simple3.out = data\simple3.out
+		data\simple4.in = data\simple4.in
+		data\simple4.out = data\simple4.out
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel_UnitTests", "src\Tests\Excel_UnitTests\Excel_UnitTests.csproj", "{CC718A44-A83B-43D1-8148-68B93A7B8DE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFramework", "src\Frameworks\ExcelTableFramework\ExcelFramework.csproj", "{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuffmanTree_UnitTests", "src\Tests\HuffmanTree_UnitTests\HuffmanTree_UnitTests.csproj", "{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelApp", "src\Apps\ExcelApp\ExcelApp.csproj", "{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,14 +148,26 @@ Global
 		{7ACAA741-4819-4B5D-A87D-0946EEE1F432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ACAA741-4819-4B5D-A87D-0946EEE1F432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ACAA741-4819-4B5D-A87D-0946EEE1F432}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74C84F6D-57CA-491C-9B37-43D7DEBF1D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74C84F6D-57CA-491C-9B37-43D7DEBF1D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74C84F6D-57CA-491C-9B37-43D7DEBF1D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74C84F6D-57CA-491C-9B37-43D7DEBF1D33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E0DE984-239D-5B2B-F469-EC6E22A67233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E0DE984-239D-5B2B-F469-EC6E22A67233}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0DE984-239D-5B2B-F469-EC6E22A67233}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0DE984-239D-5B2B-F469-EC6E22A67233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC718A44-A83B-43D1-8148-68B93A7B8DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC718A44-A83B-43D1-8148-68B93A7B8DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC718A44-A83B-43D1-8148-68B93A7B8DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC718A44-A83B-43D1-8148-68B93A7B8DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,8 +188,12 @@ Global
 		{EBA78307-B7E2-4BAF-907E-0A6B1669A527} = {014772AC-7090-43B1-8979-322A48C60D6D}
 		{E915C5CA-01F7-4322-9BC2-56943095F30E} = {014772AC-7090-43B1-8979-322A48C60D6D}
 		{7ACAA741-4819-4B5D-A87D-0946EEE1F432} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{74C84F6D-57CA-491C-9B37-43D7DEBF1D33} = {62A77961-3510-4769-98C4-566528859D14}
 		{1E0DE984-239D-5B2B-F469-EC6E22A67233} = {62A77961-3510-4769-98C4-566528859D14}
+		{99DC6217-47A1-4F12-A242-90EF87A5DDC4} = {903D2EBA-EB7B-49B3-8C19-79F4231EEA17}
+		{CC718A44-A83B-43D1-8148-68B93A7B8DE1} = {62A77961-3510-4769-98C4-566528859D14}
+		{A9ED179F-7DB1-44F5-9B03-EA4ADB443D4A} = {014772AC-7090-43B1-8979-322A48C60D6D}
+		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A} = {62A77961-3510-4769-98C4-566528859D14}
+		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B7CD0FA-CDFE-4F7D-A4A8-882D61C526B3}

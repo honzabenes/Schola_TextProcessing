@@ -1,9 +1,19 @@
-﻿namespace ExcelTableFramework
+﻿namespace ExcelFramework
 {
-    public enum CellType
+    public abstract class Cell
     {
-        Empty,
-        Number,
-        Formula
+        public int? Value { get; protected set; }
+        public CellState State { get; protected set; }
+
+        public Cell(int? value, CellState state)
+        {
+            Value = value;
+            State = state;
+        }
+
+
+        public abstract string GetOutputString();
+
+        public abstract int GetValue(Sheet sheet);
     }
 }

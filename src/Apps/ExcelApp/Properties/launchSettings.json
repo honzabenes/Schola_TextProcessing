@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExcelApp": {
+      "commandName": "Project",
+      "commandLineArgs": "$(SolutionDir)data\\sample.sheet\r\n$(SolutionDir)data\\sample.eval"
+    }
+  }
+}

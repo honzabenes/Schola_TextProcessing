@@ -1,0 +1,69 @@
+﻿using System.Text;
+
+namespace ExcelFramework
+{
+    public class SheetRenderer(TextWriter writer)
+    {
+        public void Render(Sheet sheet)
+        {
+            int maxRow = 0;
+
+            List<CellAddress> addresses = sheet.GetAdresses();
+
+            foreach (CellAddress address in addresses)
+            {
+                if (address.RowIdx > maxRow)
+                {
+                    maxRow = address.RowIdx;
+                }
+            }
+
+            if (maxRow == 0) return;
+
+            int[] maxCols = new int[maxRow + 1];
+
+            foreach (CellAddress address in addresses)
+            {
+                if (address.ColIdx > maxCols[address.RowIdx])
+                {
+                    maxCols[address.RowIdx] = address.ColIdx;
+                }
+            }
+
+            for (int r = 0; r <= maxRow; r++)
+            {
+                if (maxCols[r] == 0)
+                {
+                    writer.WriteLine();
+                    continue;
+                }
+
+                var sb = new StringBuilder();
+
+                for (int c = 0; c <= maxCols[r]; c++)
+                {
+                    CellAddress address = new CellAddress(c, r);
+
+                    Cell? cell = sheet.GetCell(address);
+
+                    if (cell is null)
+                    {
+                        sb.Append("[]");
+                    }
+
+                    else
+                    {
+                        sb.Append(cell.GetOutputString());
+                    }
+
+                    if (c <  maxCols[r])
+                    {
+                        sb.Append(' ');
+                    }
+                }
+
+                writer.WriteLine(sb.ToString());
+            }
+        }
+    }
+}
