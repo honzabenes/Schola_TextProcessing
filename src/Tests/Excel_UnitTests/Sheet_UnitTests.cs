@@ -18,7 +18,7 @@ namespace Excel_UnitTests
             // Assert
             Dictionary<CellAddress, Cell> expected = new()
             {
-                { new CellAddress(1, 3), new EmtpyCell() }
+                { new CellAddress(1, 3), new EmptyCell() }
             };
 
             Assert.Equal(expected, sheet.Cells);
@@ -72,14 +72,11 @@ namespace Excel_UnitTests
 
 
         [Fact]
-        public void GetCellValue_EmptyCell()
+        public void GetCellValue_CellAddressNotInSheet() // The other cases are covered in Cell_UnitTests
         {
             // Arrange
             var sheet = new Sheet();
             var address = new CellAddress(1, 3);
-            string content = "[]";
-
-            sheet.AddCell(address, content);
 
             // Act
             int value = sheet.GetCellValue(address);
@@ -92,61 +89,107 @@ namespace Excel_UnitTests
 
 
         [Fact]
-        public void GetCellValue_NumberCell() // TODO
+        public void CalculateAll_NoFormulaCell()
         {
             // Arrange
-            var sheet = new Sheet();
-            var address = new CellAddress(1, 3);
-            string content = "[]";
+            Dictionary<CellAddress, Cell> cells = new()
+            {
+                { new CellAddress(0, 0), new EmptyCell() },
+                { new CellAddress(0, 1), new NumberCell(3) },
+                { new CellAddress(1, 0), new NumberCell(15) },
+                { new CellAddress(1, 1), new EmptyCell() }
+            };
 
-            sheet.AddCell(address, content);
+            var sheet = new Sheet(cells);
 
             // Act
-            int value = sheet.GetCellValue(address);
+            sheet.CalculateAll();
+
+            List<int> calculatedValues = new();
+
+            foreach (Cell cell in sheet.Cells.Values)
+            {
+                calculatedValues.Add((int)cell.Value!);
+            }
 
             // Assert
-            int expected = 0;
+            List<int> expected = new()
+            {
+                0, 3, 15, 0
+            };
 
-            Assert.Equal(expected, value);
+            Assert.Equal(expected, calculatedValues);
         }
 
 
         [Fact]
-        public void GetCellValue_FormulaCell() // TODO
+        public void CalculateAll_FormulaCellsNoCycles()
         {
             // Arrange
-            var sheet = new Sheet();
-            var address = new CellAddress(1, 3);
-            string content = "[]";
+            Dictionary<CellAddress, Cell> cells = new()
+            {
+                { new CellAddress(0, 0), new EmptyCell() },
+                { new CellAddress(0, 1), new NumberCell(3) },
+                { new CellAddress(1, 0), new NumberCell(15) },
+                { new CellAddress(1, 1), new EmptyCell() },
+                { new CellAddress(0, 2), new FormulaCell('+', new CellAddress(0, 0), new CellAddress(0, 1)) },
+                { new CellAddress(1, 2), new FormulaCell('*', new CellAddress(0, 1), new CellAddress(1, 0)) }
+            };
 
-            sheet.AddCell(address, content);
+            var sheet = new Sheet(cells);
 
             // Act
-            int value = sheet.GetCellValue(address);
+            sheet.CalculateAll();
+
+            List<int> calculatedValues = new();
+
+            foreach (Cell cell in sheet.Cells.Values)
+            {
+                calculatedValues.Add((int)cell.Value!);
+            }
 
             // Assert
-            int expected = 0;
+            List<int> expected = new()
+            {
+                0, 3, 15, 0, 3, 45
+            };
 
-            Assert.Equal(expected, value);
+            Assert.Equal(expected, calculatedValues);
         }
 
+
         [Fact]
-        public void GetCellValue_CellAddressNotInSheet() // TODO
+        public void CalculateAll_FormulaCellLooksOutOfTheSheet()
         {
             // Arrange
-            var sheet = new Sheet();
-            var address = new CellAddress(1, 3);
-            string content = "[]";
+            Dictionary<CellAddress, Cell> cells = new()
+            {
+                { new CellAddress(0, 0), new EmptyCell() },
+                { new CellAddress(0, 1), new NumberCell(3) },
+                { new CellAddress(1, 0), new NumberCell(15) },
+                { new CellAddress(1, 1), new EmptyCell() },
+                { new CellAddress(0, 2), new FormulaCell('+', new CellAddress(0, 0), new CellAddress(3, 4)) },
+            };
 
-            sheet.AddCell(address, content);
+            var sheet = new Sheet(cells);
 
             // Act
-            int value = sheet.GetCellValue(address);
+            sheet.CalculateAll();
+
+            List<int> calculatedValues = new();
+
+            foreach (Cell cell in sheet.Cells.Values)
+            {
+                calculatedValues.Add((int)cell.Value!);
+            }
 
             // Assert
-            int expected = 0;
+            List<int> expected = new()
+            {
+                0, 3, 15, 0, 0
+            };
 
-            Assert.Equal(expected, value);
+            Assert.Equal(expected, calculatedValues);
         }
     }
 }

@@ -2,14 +2,24 @@
 {
     public class Sheet
     {
-        public Dictionary<CellAddress, Cell> Cells { get; private set; } = new();
+        public Dictionary<CellAddress, Cell> Cells { get; private set; }
+
+        public Sheet()
+        {
+            Cells = new Dictionary<CellAddress, Cell>();
+        }
+
+        public Sheet(Dictionary<CellAddress, Cell> cells)
+        {
+            Cells = cells;
+        }
 
 
         public void AddCell(CellAddress address, string content)
         {
             if (content == "[]")
             {
-                Cells[address] = new EmtpyCell();
+                Cells[address] = new EmptyCell();
                 return;
             }
 

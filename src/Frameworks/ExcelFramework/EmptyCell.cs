@@ -1,8 +1,8 @@
 ﻿namespace ExcelFramework
 {
-    public record EmtpyCell : Cell
+    public record EmptyCell : Cell
     {
-        public EmtpyCell() : base(0, CellState.Calculated) { }
+        public EmptyCell() : base(0, CellState.Calculated) { }
 
 
         public override string GetOutputString()

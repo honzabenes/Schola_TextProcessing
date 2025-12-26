@@ -57,8 +57,10 @@
             foreach(char c in columnLabel)
             {
                 result *= 26;
-                result += c - 'A';
+                result += c - 'A' + 1;
             }
+
+            result -= 1;
 
             return result;
         }
