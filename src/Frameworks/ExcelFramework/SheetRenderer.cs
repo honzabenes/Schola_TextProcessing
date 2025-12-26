@@ -6,7 +6,7 @@ namespace ExcelFramework
     {
         public void Render(Sheet sheet)
         {
-            int maxRow = 0;
+            int maxRow = -1;
 
             List<CellAddress> addresses = sheet.Cells.Keys.ToList();
 
@@ -18,9 +18,10 @@ namespace ExcelFramework
                 }
             }
 
-            if (maxRow == 0) return;
+            if (maxRow == -1) return;
 
             int[] maxCols = new int[maxRow + 1];
+            Array.Fill(maxCols, -1);
 
             foreach (CellAddress address in addresses)
             {
@@ -32,7 +33,7 @@ namespace ExcelFramework
 
             for (int r = 0; r <= maxRow; r++)
             {
-                if (maxCols[r] == 0)
+                if (maxCols[r] == -1)
                 {
                     writer.WriteLine();
                     continue;

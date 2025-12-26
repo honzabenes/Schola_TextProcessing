@@ -82,6 +82,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelApp", "src\Apps\ExcelA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFramework", "src\Frameworks\ExcelFramework\ExcelFramework.csproj", "{D3ECBB5B-6C2D-F643-3761-D68646B8C362}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel_IntegrationTests", "src\Tests\Excel_IntegrationTests\Excel_IntegrationTests.csproj", "{87B1B073-78B8-48AD-93BC-E83CEF515E31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -168,6 +170,10 @@ Global
 		{D3ECBB5B-6C2D-F643-3761-D68646B8C362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3ECBB5B-6C2D-F643-3761-D68646B8C362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3ECBB5B-6C2D-F643-3761-D68646B8C362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B1B073-78B8-48AD-93BC-E83CEF515E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B1B073-78B8-48AD-93BC-E83CEF515E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B1B073-78B8-48AD-93BC-E83CEF515E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B1B073-78B8-48AD-93BC-E83CEF515E31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -194,6 +200,7 @@ Global
 		{AAFB8E15-45C8-6000-2FB3-0733ED6BDB8A} = {62A77961-3510-4769-98C4-566528859D14}
 		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{D3ECBB5B-6C2D-F643-3761-D68646B8C362} = {014772AC-7090-43B1-8979-322A48C60D6D}
+		{87B1B073-78B8-48AD-93BC-E83CEF515E31} = {62A77961-3510-4769-98C4-566528859D14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B7CD0FA-CDFE-4F7D-A4A8-882D61C526B3}
