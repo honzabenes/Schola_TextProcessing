@@ -2,18 +2,18 @@
 {
     public struct CellAddress
     {
-        public int ColIdx { get; private set; }
-        public int RowIdx { get; private set; }
+        public int Column { get; private set; }
+        public int Row { get; private set; }
 
         public CellAddress(string addressLabel)
         {
-            (ColIdx, RowIdx) = Parse(addressLabel);
+            (Column, Row) = Parse(addressLabel);
         }
 
         public CellAddress(int colIdx, int rowIdx)
         {
-            ColIdx = colIdx;
-            RowIdx = rowIdx;
+            Column = colIdx;
+            Row = rowIdx;
         }
 
 
@@ -74,7 +74,7 @@
 
         public override string ToString()
         {
-            return $"({ColIdx}, {RowIdx})";
+            return $"({Column}, {Row})";
         }
     }
 }

@@ -12,9 +12,9 @@ namespace ExcelFramework
 
             foreach (CellAddress address in addresses)
             {
-                if (address.RowIdx > maxRow)
+                if (address.Row > maxRow)
                 {
-                    maxRow = address.RowIdx;
+                    maxRow = address.Row;
                 }
             }
 
@@ -25,9 +25,9 @@ namespace ExcelFramework
 
             foreach (CellAddress address in addresses)
             {
-                if (address.ColIdx > maxCols[address.RowIdx])
+                if (address.Column > maxCols[address.Row])
                 {
-                    maxCols[address.RowIdx] = address.ColIdx;
+                    maxCols[address.Row] = address.Column;
                 }
             }
 

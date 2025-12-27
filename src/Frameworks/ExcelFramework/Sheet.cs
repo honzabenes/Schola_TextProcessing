@@ -39,41 +39,9 @@
 
             if (content.StartsWith('='))
             {
-                string formula = content.Substring(1);
-
-                char[] operators = { '+', '-', '*', '/' };
-                char @operator = ' ';
-
-                foreach (char c in formula)
-                {
-                    if (operators.Contains(c))
-                    {
-                        @operator = c;
-                    }
-                }
-
-                string[] operands = formula.Split(operators);
-
-                if (@operator == ' ')
-                {
-                    Cells[address] = new ErrorCell(ErrorMessages.MissOp);
-                    return;
-                }
-
-                if (operands.Length != 2)
-                {
-                    Cells[address] = new ErrorCell(ErrorMessages.Formula);
-                    return;
-                }
-
-                string leftPart = operands[0];
-                string rightPart = operands[1];
-
                 try
                 {
-                    var op1 = new CellAddress(leftPart);
-                    var op2 = new CellAddress(rightPart);
-                    Cells[address] = new FormulaCell(@operator, op1, op2);
+                    AddFromulaCell(address, content);
                 }
                 catch (InvalidCellAddressLabelApplicationException)
                 {
@@ -81,6 +49,45 @@
                     return;
                 }
             }
+        }
+
+
+        private void AddFromulaCell(CellAddress address, string content)
+        {
+            string formula = content.Substring(1);
+
+            char[] operators = { '+', '-', '*', '/' };
+            char @operator = ' ';
+
+            foreach (char c in formula)
+            {
+                if (operators.Contains(c))
+                {
+                    @operator = c;
+                }
+            }
+
+            string[] operands = formula.Split(operators);
+
+            if (@operator == ' ')
+            {
+                Cells[address] = new ErrorCell(ErrorMessages.MissOp);
+                return;
+            }
+
+            if (operands.Length != 2)
+            {
+                Cells[address] = new ErrorCell(ErrorMessages.Formula);
+                return;
+            }
+
+            string leftPart = operands[0];
+            string rightPart = operands[1];
+
+            var op1 = new CellAddress(leftPart);
+            var op2 = new CellAddress(rightPart);
+
+            Cells[address] = new FormulaCell(@operator, op1, op2);
         }
 
 
@@ -110,12 +117,7 @@
         {
             foreach (Cell cell in Cells.Values)
             {
-                try
-                {
-                    cell.GetValue(this);
-                }
-                catch (CycleDetectedApplicationException) { }
-                catch (TryingToGetValueFromErrorCellApplicationException) { }
+                cell.GetValue(this);
             }
         }
     }

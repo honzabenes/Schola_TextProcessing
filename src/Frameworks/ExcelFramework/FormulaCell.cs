@@ -49,7 +49,21 @@
             EvaluationResult val1 = sheet.GetCellValue(FirstOperandAddress);
             EvaluationResult val2 = sheet.GetCellValue(SecondOperandAddress);
 
-             // TODO
+            if (!val1.IsSucces || !val2.IsSucces)
+            {
+                return HandleError(val1.IsSucces ? val2 : val1);
+            }
+
+            if (Operator == '/' && val2.Value == 0)
+            {
+                SetErrorState(ErrorMessages.DivZero);
+                return HandleError(new EvaluationResult(ErrorMessages.DivZero));
+            }
+
+            Value = CalculateResult(val1.Value, val2.Value);
+            State = CellState.Calculated;
+
+            return new EvaluationResult((int)Value);
         }
 
         
@@ -60,15 +74,7 @@
                 case '+': return val1 + val2;
                 case '-': return val1 - val2;
                 case '*': return val1 * val2;
-                case '/':
-                    if (val2 == 0)
-                    {
-                        throw new DivideByZeroApplicationException();
-                    }
-                    else
-                    {
-                        return val1 / val2;
-                    }
+                case '/': return val1 / val2;
                 default: return 0;
             }
         }
@@ -76,14 +82,28 @@
 
         private EvaluationResult HandleError(EvaluationResult error)
         {
-            // TODO
+            if (error.ErrorMessage == ErrorMessages.Cycle && error.CycleInitiatior is not null)
+            {
+                if (ReferenceEquals(this, error.CycleInitiatior))
+                {
+                    SetErrorState(ErrorMessages.Cycle);
+                    return new EvaluationResult(ErrorMessages.Cycle);
+                }
+                else
+                {
+                    SetErrorState(ErrorMessages.Cycle);
+                    return error;
+                }
+            }
+
+            SetErrorState(ErrorMessages.Error);
+            return new EvaluationResult(ErrorMessages.Error);
         }
 
-        private EvaluationResult SetErrorState(string message)
+        private void SetErrorState(string message)
         {
             ErrorMessage = message;
             State = CellState.Error;
-            return new EvaluationResult(message);
         }
     }
 }

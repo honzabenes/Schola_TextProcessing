@@ -11,9 +11,9 @@
         }
 
 
-        public override int GetValue(Sheet sheet)
+        public override EvaluationResult GetValue(Sheet sheet)
         {
-            return (int)Value!;
+            return new EvaluationResult((int)Value!);
         }
     }
 }

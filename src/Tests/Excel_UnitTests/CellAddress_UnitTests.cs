@@ -10,7 +10,7 @@ namespace Excel_UnitTests
             // Arrange
             var address = new CellAddress("A3");
 
-            (int, int) coordinates = (address.ColIdx, address.RowIdx);
+            (int, int) coordinates = (address.Column, address.Row);
 
             // Assert
             (int, int) expected = (0, 2);
@@ -25,7 +25,7 @@ namespace Excel_UnitTests
             // Arrange
             var address = new CellAddress("AC321");
 
-            (int, int) coordinates = (address.ColIdx, address.RowIdx);
+            (int, int) coordinates = (address.Column, address.Row);
 
             // Assert
             (int, int) expected = (28, 320);
