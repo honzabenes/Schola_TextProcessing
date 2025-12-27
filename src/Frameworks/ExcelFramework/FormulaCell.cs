@@ -60,7 +60,7 @@
             if (Operator == '/' && val2.Value == 0)
             {
                 SetErrorState(ErrorMessages.DivZero);
-                return HandleError(new EvaluationResult(ErrorMessages.DivZero));
+                return new EvaluationResult(ErrorMessages.DivZero);
             }
 
             Value = CalculateResult(val1.Value, val2.Value);
