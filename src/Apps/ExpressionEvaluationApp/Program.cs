@@ -7,11 +7,8 @@ namespace ExpressionEvaluationApp
     {
         static void Main(string[] args)
         {
-            //string expression = Console.ReadLine();
-
             try
             {
-                //ExpressionTreeNode? root = ExpressionTreeBuilder_Legacy.Build(expression);
                 ITokenReader reader = new ByCharsTokenReader(Console.In);
                 var treeBuilder = new PrefixExpressionTreeBuilder(reader);
 
