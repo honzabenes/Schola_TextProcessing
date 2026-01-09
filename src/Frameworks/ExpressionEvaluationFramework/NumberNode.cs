@@ -1,12 +1,18 @@
 ﻿namespace ExpressionEvaluationFramework
 {
-    public class NumberNode : Node
+    public class NumberNode : ExpressionTreeNode
     {
-        public int Value { get; init; }
+        public int Value { get; set; }
 
-        public NumberNode(int value) : base(null, null)
+        public NumberNode(int value)
         {
             Value = value;
+        }
+
+
+        public override int Evaluate()
+        {
+            return Value;
         }
     }
 }

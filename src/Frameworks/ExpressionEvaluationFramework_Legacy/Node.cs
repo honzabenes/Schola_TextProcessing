@@ -1,4 +1,4 @@
-﻿namespace ExpressionEvaluationFramework
+﻿namespace ExpressionEvaluationFramework_Legacy
 {
     public abstract class Node
     {

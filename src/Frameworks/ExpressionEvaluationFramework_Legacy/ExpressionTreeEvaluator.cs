@@ -1,8 +1,8 @@
-﻿namespace ExpressionEvaluationFramework
+﻿namespace ExpressionEvaluationFramework_Legacy
 {
     public static class ExpressionTreeEvaluator
     {
-        public static int Evaluate(Node root)
+        public static int Evaluate(Node? root)
         {
             if (root is null)
             {

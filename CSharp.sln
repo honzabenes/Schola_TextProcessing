@@ -84,9 +84,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelFramework", "src\Frame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionEvaluationApp", "src\Apps\ExpressionEvaluationApp\ExpressionEvaluationApp.csproj", "{8BAD718C-88B0-48E7-927B-AD8A740022DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionEvaluationFramework", "src\Frameworks\ExpressionEvaluationFramework\ExpressionEvaluationFramework.csproj", "{2CAF2375-C8E3-4D0D-822A-A91C8D387900}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionEvaluation_Tests", "src\Tests\ExpressionEvaluationTests\ExpressionEvaluation_Tests.csproj", "{6492E180-578B-4FC9-AA30-0A8A76CC12AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionEvaluationFrameworkLegacy", "src\Frameworks\ExpressionEvaluationFramework_Legacy\ExpressionEvaluationFrameworkLegacy.csproj", "{63D9D190-5387-A640-493D-93C0950DCE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionEvaluationFramework", "src\Frameworks\ExpressionEvaluationFramework\ExpressionEvaluationFramework.csproj", "{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -178,14 +180,18 @@ Global
 		{8BAD718C-88B0-48E7-927B-AD8A740022DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BAD718C-88B0-48E7-927B-AD8A740022DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BAD718C-88B0-48E7-927B-AD8A740022DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CAF2375-C8E3-4D0D-822A-A91C8D387900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CAF2375-C8E3-4D0D-822A-A91C8D387900}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CAF2375-C8E3-4D0D-822A-A91C8D387900}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CAF2375-C8E3-4D0D-822A-A91C8D387900}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6492E180-578B-4FC9-AA30-0A8A76CC12AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6492E180-578B-4FC9-AA30-0A8A76CC12AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6492E180-578B-4FC9-AA30-0A8A76CC12AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6492E180-578B-4FC9-AA30-0A8A76CC12AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D9D190-5387-A640-493D-93C0950DCE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D9D190-5387-A640-493D-93C0950DCE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D9D190-5387-A640-493D-93C0950DCE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D9D190-5387-A640-493D-93C0950DCE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,8 +219,9 @@ Global
 		{7F299DF1-5EC3-445B-9784-0BB2AB2F7DDE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{D3ECBB5B-6C2D-F643-3761-D68646B8C362} = {014772AC-7090-43B1-8979-322A48C60D6D}
 		{8BAD718C-88B0-48E7-927B-AD8A740022DA} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{2CAF2375-C8E3-4D0D-822A-A91C8D387900} = {014772AC-7090-43B1-8979-322A48C60D6D}
 		{6492E180-578B-4FC9-AA30-0A8A76CC12AB} = {62A77961-3510-4769-98C4-566528859D14}
+		{63D9D190-5387-A640-493D-93C0950DCE33} = {014772AC-7090-43B1-8979-322A48C60D6D}
+		{4B1BC0B5-8327-4A89-BB12-E7BAD81C658B} = {014772AC-7090-43B1-8979-322A48C60D6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B7CD0FA-CDFE-4F7D-A4A8-882D61C526B3}
