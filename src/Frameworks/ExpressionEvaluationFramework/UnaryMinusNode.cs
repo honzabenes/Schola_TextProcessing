@@ -1,6 +1,6 @@
 ﻿namespace ExpressionEvaluationFramework
 {
-    public class UnaryMinusNode : UnaryOperatorNode
+    public sealed class UnaryMinusNode : UnaryOperatorNode
     {
         public UnaryMinusNode(ExpressionTreeNode operand) : base(operand) { }
 

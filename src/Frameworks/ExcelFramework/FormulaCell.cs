@@ -52,9 +52,9 @@
             EvaluationResult val1 = sheet.GetCellValue(FirstOperandAddress);
             EvaluationResult val2 = sheet.GetCellValue(SecondOperandAddress);
 
-            if (!val1.IsSucces || !val2.IsSucces)
+            if (!val1.IsSuccess || !val2.IsSuccess)
             {
-                return HandleError(val1.IsSucces ? val2 : val1);
+                return HandleError(val1.IsSuccess ? val2 : val1);
             }
 
             if (Operator == '/' && val2.Value == 0)

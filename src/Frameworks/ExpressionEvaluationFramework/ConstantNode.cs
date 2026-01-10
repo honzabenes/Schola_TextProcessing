@@ -1,10 +1,10 @@
 ﻿namespace ExpressionEvaluationFramework
 {
-    public class NumberNode : ExpressionTreeNode
+    public sealed class ConstantNode : ExpressionTreeNode
     {
         public int Value { get; set; }
 
-        public NumberNode(int value)
+        public ConstantNode(int value)
         {
             Value = value;
         }

@@ -6,14 +6,14 @@
     /// </summary>
     public readonly struct EvaluationResult
     {
-        public bool IsSucces { get; }
+        public bool IsSuccess { get; }
         public int Value { get; }
         public string ErrorMessage { get; }
         public Cell? CycleInitiatior { get; }
 
         public EvaluationResult(int value)
         {
-            IsSucces = true;
+            IsSuccess = true;
             Value = value;
             ErrorMessage = string.Empty;
             CycleInitiatior = null;
@@ -21,7 +21,7 @@
 
         public EvaluationResult(string errorMessage, Cell? cycleInitiator = null)
         {
-            IsSucces = false;
+            IsSuccess = false;
             Value = 0;
             ErrorMessage = errorMessage;
             CycleInitiatior = cycleInitiator;
